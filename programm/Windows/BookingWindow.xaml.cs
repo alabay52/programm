@@ -1,4 +1,6 @@
-﻿namespace programm.Window
+﻿using programm.Windows;
+
+namespace programm.Window
 {
     /// <summary>
     /// Логика взаимодействия для BookingWindow.xaml
@@ -19,6 +21,20 @@
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
+            this.Hide();
+        }
+
+        private void HistoryBooking_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            BookingHistoryWindow bookingHistoryWindow = new BookingHistoryWindow();
+            bookingHistoryWindow.Show();
+            this.Hide();
+        }
+
+        private void TechnikBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            TechnicWindow technicWindow = new TechnicWindow();
+            technicWindow.Show();
             this.Hide();
         }
     }
