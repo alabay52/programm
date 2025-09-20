@@ -1,0 +1,57 @@
+﻿<Application x:Class="programm.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:programm"
+             StartupUri="\Windows\LoginWindow.xaml">
+    <Application.Resources>
+        <!-- Стиль кнопки "капсула" -->
+        <Style x:Key="CapsuleButton" TargetType="Button">
+            <Setter Property="Background" Value="#FABB0E"/>
+            <!-- Жёлтый -->
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            CornerRadius="25"
+                            SnapsToDevicePixels="True" >
+                            
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          RecognizesAccessKey="True"/>
+                            
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--<Style x:Key="CapsuleButtonWrap" TargetType="Button">
+            <Setter Property="Background" Value="#FABB0E"/>
+            --><!-- Жёлтый --><!--
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    CornerRadius="25"
+                    SnapsToDevicePixels="True" >
+
+                            <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+    </Application.Resources>
+</Application>
