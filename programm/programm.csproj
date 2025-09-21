@@ -64,8 +64,14 @@
     <Compile Include="Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MaintenanceRegistrationTechnWindow.xaml.cs">
+      <DependentUpon>MaintenanceRegistrationTechnWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\TechnicWindow.xaml.cs">
       <DependentUpon>TechnicWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TechnikDeleteWindow.xaml.cs">
+      <DependentUpon>TechnikDeleteWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\addingReservationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,7 +97,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\MaintenanceRegistrationTechnWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\TechnicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TechnikDeleteWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -74,11 +74,11 @@
                 <Button Grid.Column="0"   Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Добавить технику в прокат" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
-                <Button   Grid.Column="4"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
+                <Button Name="TechnikDeleteBtn" Click="TechnikDeleteBtn_Click"  Grid.Column="4"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Удалить технику с проката" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
-                <Button   Grid.Column="6"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
-                    <TextBlock Text="Зарегистрировать технику для проведения ТО" TextWrapping="Wrap" TextAlignment="Center"/>
+                <Button Name="RegisterMaintenanceBtn" Click="RegisterMaintenanceBtn_Click"  Grid.Column="6"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
+                    <TextBlock  Text="Зарегистрировать технику для проведения ТО" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
             </Grid>
         </Grid>
