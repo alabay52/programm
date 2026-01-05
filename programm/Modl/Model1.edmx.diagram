@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="951f053a937a40d3a7be59487ba94afe" Name="Diagram1">
+        <EntityTypeShape EntityType="SochnevBdModel.Booking" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBdModel.Role" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBdModel.Status" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBdModel.TariffRents" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBdModel.TechicalTariff" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBdModel.Technic" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBdModel.Users" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="SochnevBdModel.FK_Booking_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBdModel.FK_Booking_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBdModel.FK_TechicalTariff_Booking" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBdModel.FK_Users_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBdModel.FK_Technic_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBdModel.FK_TechicalTariff_TariffRents1" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBdModel.FK_TechicalTariff_Technic1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

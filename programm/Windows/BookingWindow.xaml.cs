@@ -31,11 +31,6 @@ namespace programm.Window
             this.Hide();
         }
 
-        private void TechnikBtn_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            TechnicWindow technicWindow = new TechnicWindow();
-            technicWindow.Show();
-            this.Hide();
-        }
+
     }
 }

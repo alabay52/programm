@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SochnevBdModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="IdBooking" />
+          </Key>
+          <Property Name="IdBooking" Type="int" Nullable="false" />
+          <Property Name="IdUsers" Type="int" Nullable="false" />
+          <Property Name="IdTechnicalTariff" Type="int" Nullable="false" />
+          <Property Name="StartDateBooking" Type="date" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="EndDateBooking" Type="date" />
+          <Property Name="IdAdministrotor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="IdStatus" />
+          </Key>
+          <Property Name="IdStatus" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TariffRents">
+          <Key>
+            <PropertyRef Name="IdTariff" />
+          </Key>
+          <Property Name="IdTariff" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TechicalTariff">
+          <Key>
+            <PropertyRef Name="IdTechnicalTariff" />
+          </Key>
+          <Property Name="IdTechnicalTariff" Type="int" Nullable="false" />
+          <Property Name="IdTechical" Type="int" Nullable="false" />
+          <Property Name="IdTariff" Type="int" Nullable="false" />
+          <Property Name="IdBooking" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Technic">
+          <Key>
+            <PropertyRef Name="IdTechnical" />
+          </Key>
+          <Property Name="IdTechnical" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VIN" Type="nchar" MaxLength="17" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="IdStatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdRole" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telephone" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassportData" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Booking_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Users1">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="IdAdministrotor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechicalTariff_Booking">
+          <End Role="Booking" Type="Self.Booking" Multiplicity="1" />
+          <End Role="TechicalTariff" Type="Self.TechicalTariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking">
+              <PropertyRef Name="IdBooking" />
+            </Principal>
+            <Dependent Role="TechicalTariff">
+              <PropertyRef Name="IdBooking" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechicalTariff_TariffRents1">
+          <End Role="TariffRents" Type="Self.TariffRents" Multiplicity="1" />
+          <End Role="TechicalTariff" Type="Self.TechicalTariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TariffRents">
+              <PropertyRef Name="IdTariff" />
+            </Principal>
+            <Dependent Role="TechicalTariff">
+              <PropertyRef Name="IdTariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechicalTariff_Technic1">
+          <End Role="Technic" Type="Self.Technic" Multiplicity="1" />
+          <End Role="TechicalTariff" Type="Self.TechicalTariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Technic">
+              <PropertyRef Name="IdTechnical" />
+            </Principal>
+            <Dependent Role="TechicalTariff">
+              <PropertyRef Name="IdTechical" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Technic_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Technic" Type="Self.Technic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="IdStatus" />
+            </Principal>
+            <Dependent Role="Technic">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SochnevBdModelContainer">
+          <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TariffRents" EntityType="Self.TariffRents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechicalTariff" EntityType="Self.TechicalTariff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Technic" EntityType="Self.Technic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Booking_Users" Association="Self.FK_Booking_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Users1" Association="Self.FK_Booking_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechicalTariff_Booking" Association="Self.FK_TechicalTariff_Booking">
+            <End Role="Booking" EntitySet="Booking" />
+            <End Role="TechicalTariff" EntitySet="TechicalTariff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechicalTariff_TariffRents1" Association="Self.FK_TechicalTariff_TariffRents1">
+            <End Role="TariffRents" EntitySet="TariffRents" />
+            <End Role="TechicalTariff" EntitySet="TechicalTariff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechicalTariff_Technic1" Association="Self.FK_TechicalTariff_Technic1">
+            <End Role="Technic" EntitySet="Technic" />
+            <End Role="TechicalTariff" EntitySet="TechicalTariff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Technic_Status" Association="Self.FK_Technic_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Technic" EntitySet="Technic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SochnevBdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="IdBooking" />
+          </Key>
+          <Property Name="IdBooking" Type="Int32" Nullable="false" />
+          <Property Name="IdUsers" Type="Int32" Nullable="false" />
+          <Property Name="IdTechnicalTariff" Type="Int32" Nullable="false" />
+          <Property Name="StartDateBooking" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="EndDateBooking" Type="DateTime" Precision="0" />
+          <Property Name="IdAdministrotor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Booking_Users" FromRole="Booking" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="Self.FK_Booking_Users1" FromRole="Booking" ToRole="Users" />
+          <NavigationProperty Name="TechicalTariff" Relationship="Self.FK_TechicalTariff_Booking" FromRole="Booking" ToRole="TechicalTariff" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="IdStatus" />
+          </Key>
+          <Property Name="IdStatus" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Technic" Relationship="Self.FK_Technic_Status" FromRole="Status" ToRole="Technic" />
+        </EntityType>
+        <EntityType Name="TariffRents">
+          <Key>
+            <PropertyRef Name="IdTariff" />
+          </Key>
+          <Property Name="IdTariff" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TechicalTariff" Relationship="Self.FK_TechicalTariff_TariffRents1" FromRole="TariffRents" ToRole="TechicalTariff" />
+        </EntityType>
+        <EntityType Name="TechicalTariff">
+          <Key>
+            <PropertyRef Name="IdTechnicalTariff" />
+          </Key>
+          <Property Name="IdTechnicalTariff" Type="Int32" Nullable="false" />
+          <Property Name="IdTechical" Type="Int32" Nullable="false" />
+          <Property Name="IdTariff" Type="Int32" Nullable="false" />
+          <Property Name="IdBooking" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Booking" Relationship="Self.FK_TechicalTariff_Booking" FromRole="TechicalTariff" ToRole="Booking" />
+          <NavigationProperty Name="TariffRents" Relationship="Self.FK_TechicalTariff_TariffRents1" FromRole="TechicalTariff" ToRole="TariffRents" />
+          <NavigationProperty Name="Technic" Relationship="Self.FK_TechicalTariff_Technic1" FromRole="TechicalTariff" ToRole="Technic" />
+        </EntityType>
+        <EntityType Name="Technic">
+          <Key>
+            <PropertyRef Name="IdTechnical" />
+          </Key>
+          <Property Name="IdTechnical" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VIN" Type="String" MaxLength="17" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IdStatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Technic_Status" FromRole="Technic" ToRole="Status" />
+          <NavigationProperty Name="TechicalTariff" Relationship="Self.FK_TechicalTariff_Technic1" FromRole="Technic" ToRole="TechicalTariff" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdRole" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassportData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Booking" Relationship="Self.FK_Booking_Users" FromRole="Users" ToRole="Booking" />
+          <NavigationProperty Name="Booking1" Relationship="Self.FK_Booking_Users1" FromRole="Users" ToRole="Booking" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_Booking_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Users1">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="IdAdministrotor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechicalTariff_Booking">
+          <End Role="Booking" Type="Self.Booking" Multiplicity="1" />
+          <End Role="TechicalTariff" Type="Self.TechicalTariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking">
+              <PropertyRef Name="IdBooking" />
+            </Principal>
+            <Dependent Role="TechicalTariff">
+              <PropertyRef Name="IdBooking" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Technic_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Technic" Type="Self.Technic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="IdStatus" />
+            </Principal>
+            <Dependent Role="Technic">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechicalTariff_TariffRents1">
+          <End Role="TariffRents" Type="Self.TariffRents" Multiplicity="1" />
+          <End Role="TechicalTariff" Type="Self.TechicalTariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TariffRents">
+              <PropertyRef Name="IdTariff" />
+            </Principal>
+            <Dependent Role="TechicalTariff">
+              <PropertyRef Name="IdTariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechicalTariff_Technic1">
+          <End Role="Technic" Type="Self.Technic" Multiplicity="1" />
+          <End Role="TechicalTariff" Type="Self.TechicalTariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Technic">
+              <PropertyRef Name="IdTechnical" />
+            </Principal>
+            <Dependent Role="TechicalTariff">
+              <PropertyRef Name="IdTechical" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SochnevBdEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Booking" EntityType="Self.Booking" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="TariffRents" EntityType="Self.TariffRents" />
+          <EntitySet Name="TechicalTariff" EntityType="Self.TechicalTariff" />
+          <EntitySet Name="Technic" EntityType="Self.Technic" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_Booking_Users" Association="Self.FK_Booking_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Users1" Association="Self.FK_Booking_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechicalTariff_Booking" Association="Self.FK_TechicalTariff_Booking">
+            <End Role="Booking" EntitySet="Booking" />
+            <End Role="TechicalTariff" EntitySet="TechicalTariff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Technic_Status" Association="Self.FK_Technic_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Technic" EntitySet="Technic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechicalTariff_TariffRents1" Association="Self.FK_TechicalTariff_TariffRents1">
+            <End Role="TariffRents" EntitySet="TariffRents" />
+            <End Role="TechicalTariff" EntitySet="TechicalTariff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechicalTariff_Technic1" Association="Self.FK_TechicalTariff_Technic1">
+            <End Role="Technic" EntitySet="Technic" />
+            <End Role="TechicalTariff" EntitySet="TechicalTariff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SochnevBdModelContainer" CdmEntityContainer="SochnevBdEntities">
+          <EntitySetMapping Name="Booking">
+            <EntityTypeMapping TypeName="SochnevBdModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="IdBooking" ColumnName="IdBooking" />
+                <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+                <ScalarProperty Name="IdTechnicalTariff" ColumnName="IdTechnicalTariff" />
+                <ScalarProperty Name="StartDateBooking" ColumnName="StartDateBooking" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="EndDateBooking" ColumnName="EndDateBooking" />
+                <ScalarProperty Name="IdAdministrotor" ColumnName="IdAdministrotor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="SochnevBdModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="SochnevBdModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TariffRents">
+            <EntityTypeMapping TypeName="SochnevBdModel.TariffRents">
+              <MappingFragment StoreEntitySet="TariffRents">
+                <ScalarProperty Name="IdTariff" ColumnName="IdTariff" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechicalTariff">
+            <EntityTypeMapping TypeName="SochnevBdModel.TechicalTariff">
+              <MappingFragment StoreEntitySet="TechicalTariff">
+                <ScalarProperty Name="IdTechnicalTariff" ColumnName="IdTechnicalTariff" />
+                <ScalarProperty Name="IdTechical" ColumnName="IdTechical" />
+                <ScalarProperty Name="IdTariff" ColumnName="IdTariff" />
+                <ScalarProperty Name="IdBooking" ColumnName="IdBooking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Technic">
+            <EntityTypeMapping TypeName="SochnevBdModel.Technic">
+              <MappingFragment StoreEntitySet="Technic">
+                <ScalarProperty Name="IdTechnical" ColumnName="IdTechnical" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SochnevBdModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PassportData" ColumnName="PassportData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

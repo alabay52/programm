@@ -36,9 +36,9 @@
             <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Grid.RowSpan="3" Text="Данный раздел предназначен для работы с техникой"/>
 
 
-            <Button Name="BookingBtn" Click="BookingBtn_Click" Grid.Row="0" Grid.Column="4"  Height="60" Width="230" Content="Бронирование" Style="{StaticResource CapsuleButton}" />
+          
             <Button Grid.Row="0" Grid.Column="6"   Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />
-            <Button Grid.Column="4" Grid.Row="2" FontWeight="Black"  Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />
+            <Button Grid.Column="4" Grid.Row="0" FontWeight="Black"  Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />
 
             <TextBlock Grid.Column="2" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области"/>
             <Image Source="/image/LOGO.png" Grid.RowSpan="3" Height="200" Width="200"/>
@@ -62,8 +62,7 @@
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="10" />
                     <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="10" />
-                    <ColumnDefinition Width="1*" />
+                
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="150" />
@@ -77,9 +76,9 @@
                 <Button Name="TechnikDeleteBtn" Click="TechnikDeleteBtn_Click"  Grid.Column="4"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Удалить технику с проката" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
-                <Button Name="RegisterMaintenanceBtn" Click="RegisterMaintenanceBtn_Click"  Grid.Column="6"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
+                <!--<Button Name="RegisterMaintenanceBtn" Click="RegisterMaintenanceBtn_Click"  Grid.Column="6"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock  Text="Зарегистрировать технику для проведения ТО" TextWrapping="Wrap" TextAlignment="Center"/>
-                </Button>
+                </Button>-->
             </Grid>
         </Grid>
     </Grid>
