@@ -23,7 +23,7 @@
 
 
             <Grid.Background>
-                <ImageBrush ImageSource="C:\Users\danil\source\repos\programm\programm\image\BACKGROUND.png"></ImageBrush>
+                <ImageBrush ImageSource="\image\BACKGROUND.png"></ImageBrush>
             </Grid.Background>
 
 
@@ -115,7 +115,7 @@ Margin="0,0,0,0"/>
                 <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="Прокат квадроциклов в Москве и области" VerticalAlignment="Center"/>
 
             </Grid>
-            <Image Grid.Column="0" Grid.Row="1" Source="C:\Users\danil\source\repos\programm\programm\image\kvadro1.png" Height="200" Width="250" Stretch="UniformToFill"/>
+            <Image Grid.Column="0" Grid.Row="1" Source="C:\Users\СочневКлюев\source\repos\programm\programm\image\kvadro1.png" Height="200" Width="250" Stretch="UniformToFill"/>
 
         </Grid>
 

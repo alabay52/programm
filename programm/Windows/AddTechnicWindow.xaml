@@ -1,11 +1,11 @@
-﻿<Window x:Class="programm.Windows.TechnikDeleteWindow"
+﻿<Window x:Class="programm.Windows.AddTechnicWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:programm.Windows"
         mc:Ignorable="d"
-        Title="TechnikDeleteWindow" Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+               Title="MaintenanceRegistrationTechnWindow" Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen">
     <Grid Background="#D9D9D9">
         <Grid.RowDefinitions>
             <RowDefinition Height="200" />
@@ -37,9 +37,9 @@
             <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Grid.RowSpan="3" Text="Данный раздел предназначен для работы техникой"/>
 
 
-          
+         
             <Button Grid.Row="0" Grid.Column="6"   Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />
-            <Button Grid.Row="0" Grid.Column="4"  Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />
+            <Button Grid.Row="0" Grid.Column="4" Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />
 
             <TextBlock Grid.Column="2" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области"/>
             <Image Source="/image/LOGO.png" Grid.RowSpan="3" Height="200" Width="200"/>
@@ -80,29 +80,38 @@
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="20" />
                         <RowDefinition Height="1*" />
-                        <RowDefinition Height="20" />
-                        <RowDefinition Height="1*" />
+                        
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row="2" Text="ИЛИ" FontSize="25" TextAlignment="Center" Opacity="0.5" VerticalAlignment="Bottom" />
-                    <TextBlock Grid.Row="4" Text="Найти по названию:" FontSize="25" TextAlignment="Center" />
-                    <TextBlock Grid.Row="0" Text="Выбрать из списка:"  FontSize="25" TextAlignment="Center" VerticalAlignment="Bottom" />
-                    <TextBlock Grid.Row="6" Text="Укажите дату вывода техники из проката:" TextWrapping="Wrap"  FontSize="25" TextAlignment="Center"  />
-                    <TextBlock Grid.Row="8" Text="Укажите причину:"  FontSize="25" TextAlignment="Center"  />
-                    <TextBox Grid.Row="4" Grid.Column="2" Height="50" Width="350" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Grid.Row="6" Grid.Column="2" Height="50" Width="350" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Grid.Row="8" Grid.Column="2" Height="50" Width="350" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <ComboBox Grid.Column="2" Grid.Row="0" Height="50" Width="350" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="2" Text="Введите ВИН номер" FontSize="25" TextAlignment="Center"  VerticalAlignment="Bottom" />
+                    <TextBlock Grid.Row="4" Text="Описание техники" FontSize="25" TextAlignment="Center" />
+                    <TextBlock Grid.Row="0" Text="Название"  FontSize="25" TextAlignment="Center" VerticalAlignment="Bottom" />
+                    <TextBlock Grid.Row="6" Text="Укажите статус:" TextWrapping="Wrap"  FontSize="25" TextAlignment="Center"  />
+                   
+                    <TextBox Grid.Row="2" Name="VINTb" Grid.Column="2" Height="50" Width="350" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                    <TextBox Grid.Row="4" Name="DescriptionTb" Grid.Column="2" Height="50" Width="350" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox Name="NameTb" Grid.Row="0" Grid.Column="2" Height="50" Width="350" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                    <ComboBox Name="StatusCmb" Grid.Column="2" Grid.Row="6" Height="50" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                 </Grid>
-                <TextBlock Grid.Column="2" Grid.Row="1" FontSize="60" Text="ТУТ БУДЕТ ФОТО"/>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                    <Button Name="AddBtn" Content="Добавить фото" Grid.Row="2" Style="{StaticResource CapsuleButton}" Height="60" Width="300" Click="AddBtn_Click"/>
+                    <TextBlock  Grid.Row="0" FontSize="30" Text="Фотография выбранной техники" HorizontalAlignment="Center"/>
+                </Grid>
 
 
-                <TextBlock Text="Удаление техники" FontSize="35" Grid.ColumnSpan="2" TextAlignment="Center"/>
-               
+                <TextBlock Text="Добавление техники" FontSize="35" Grid.ColumnSpan="2" TextAlignment="Center"/>
+
 
                 <Button Name="BackBtn" Click="BackBtn_Click" Grid.ColumnSpan="2" Grid.Row="2" Content="Назад" Height="70" Width="300" Style="{StaticResource CapsuleButton}"/>
+                <Button Name="AddTechnicBtn" Click="AddTechnicBtn_Click" Grid.Column="2" Grid.Row="2" Content="Добавить технику" Height="70" Width="300" Style="{StaticResource CapsuleButton}"/>
 
             </Grid>
         </Grid>
     </Grid>
 </Window>
+

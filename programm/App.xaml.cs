@@ -1,5 +1,6 @@
-﻿using System.Windows;
-using programm.Modl;
+﻿using programm.Modl;
+using System.Windows;
+
 
 namespace programm
 {
@@ -8,7 +9,7 @@ namespace programm
     /// </summary>
     public partial class App : Application
     {
-        public static SochnevBdEntities context = new SochnevBdEntities();
+      public static SochnevBd2Entities context = new SochnevBd2Entities();
         public static Users currentUser = new Users();
     }
 }

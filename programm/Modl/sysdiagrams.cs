@@ -12,21 +12,12 @@ namespace programm.Modl
     using System;
     using System.Collections.Generic;
     
-    public partial class Technic
+    public partial class sysdiagrams
     {
-        public Technic()
-        {
-            this.TechicalTariff = new HashSet<TechicalTariff>();
-        }
-    
-        public int IdTechnical { get; set; }
-        public string Name { get; set; }
-        public string VIN { get; set; }
-        public string Description { get; set; }
-        public byte[] Photo { get; set; }
-        public Nullable<int> IdStatus { get; set; }
-    
-        public virtual Status Status { get; set; }
-        public virtual ICollection<TechicalTariff> TechicalTariff { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

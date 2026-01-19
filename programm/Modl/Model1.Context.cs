@@ -13,10 +13,10 @@ namespace programm.Modl
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SochnevBdEntities : DbContext
+    public partial class SochnevBd2Entities : DbContext
     {
-        public SochnevBdEntities()
-            : base("name=SochnevBdEntities")
+        public SochnevBd2Entities()
+            : base("name=SochnevBd2Entities")
         {
         }
     
@@ -28,6 +28,7 @@ namespace programm.Modl
         public DbSet<Booking> Booking { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<TariffRents> TariffRents { get; set; }
         public DbSet<TechicalTariff> TechicalTariff { get; set; }
         public DbSet<Technic> Technic { get; set; }

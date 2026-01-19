@@ -53,7 +53,7 @@
 
         <Grid Grid.Row="1">
             <Grid.Background>
-                <ImageBrush ImageSource="C:\Users\danil\source\repos\programm\programm\image\BACKGROUND.png"></ImageBrush>
+                <ImageBrush ImageSource="\image\BACKGROUND.png"></ImageBrush>
             </Grid.Background>
             <Grid Margin="40" Background="#D9D9D9">
                 <Grid.ColumnDefinitions>
@@ -70,7 +70,7 @@
                 </Grid.RowDefinitions>
 
                 <Button  Grid.Column="2" Content="Список техники" Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>
-                <Button Grid.Column="0"   Height="100" Width="300" Style="{StaticResource CapsuleButton}">
+                <Button Grid.Column="0" Name="AddBtn" Click="AddBtn_Click"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Добавить технику в прокат" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
                 <Button Name="TechnikDeleteBtn" Click="TechnikDeleteBtn_Click"  Grid.Column="4"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">

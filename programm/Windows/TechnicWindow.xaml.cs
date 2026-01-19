@@ -27,11 +27,18 @@ namespace programm.Windows
             this.Hide();
         }
 
-        private void RegisterMaintenanceBtn_Click(object sender, RoutedEventArgs e)
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            MaintenanceRegistrationTechnWindow maintenanceRegistrationTechnWindow = new MaintenanceRegistrationTechnWindow();
-            maintenanceRegistrationTechnWindow.Show();
-            this.Hide();
+            AddTechnicWindow addTechnicWindow = new AddTechnicWindow();
+            addTechnicWindow.Show();
+            Close();
         }
+
+        //private void RegisterMaintenanceBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    MaintenanceRegistrationTechnWindow maintenanceRegistrationTechnWindow = new MaintenanceRegistrationTechnWindow();
+        //    maintenanceRegistrationTechnWindow.Show();
+        //    this.Hide();
+        //}
     }
 }

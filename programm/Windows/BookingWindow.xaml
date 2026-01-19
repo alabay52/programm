@@ -53,7 +53,7 @@
 
         <Grid Grid.Row="1">
             <Grid.Background>
-                <ImageBrush ImageSource="C:\Users\danil\source\repos\programm\programm\image\BACKGROUND.png"></ImageBrush>
+                <ImageBrush ImageSource="C:\Users\СочневКлюев\source\repos\programm\programm\image\BACKGROUND.png"></ImageBrush>
             </Grid.Background>
             <Grid Margin="40" Background="#D9D9D9">
                 <Grid.ColumnDefinitions>
