@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Linq;
+
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -24,7 +24,12 @@ namespace programm.Windows
     /// </summary>
     public partial class AddTechnicWindow
     {
+
+
         //private byte[] photoTechnic;
+        private Technic newModel = new Technic();
+
+
         public AddTechnicWindow()
         {
             InitializeComponent();
@@ -34,31 +39,43 @@ namespace programm.Windows
             
         }
 
-        public void AddPhoto()
-        {
-            Technic photoTechnic = new Technic();
+        //public void AddPhoto()
+        //{
+        //    Technic photoTechnic = new Technic();
 
 
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.ShowDialog();
+        //    OpenFileDialog fileDialog = new OpenFileDialog();
+        //    fileDialog.ShowDialog();
 
-            foreach (var photo in fileDialog.FileNames)
-            {
-                photoTechnic.Photo = File.ReadAllBytes(photo);
-               App.context.Technic.Add(photoTechnic);
+        //    foreach (var photo in fileDialog.FileNames)
+        //    {
+        //        photoTechnic.Photo = File.ReadAllBytes(photo);
+        //       App.context.Technic.Add(photoTechnic);
 
 
 
-            }
-            MessageBox.Show("Фотография добавлена");
-        }
+        //    }
+        //    MessageBox.Show("Фотография добавлена");
+        //}
 
 
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-           AddPhoto();
+           //AddPhoto();
             
+        
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                Filter = "Изображения (*.jpg;*.png)|*.jpg;*.png"
+            };
+
+            if (fileDialog.ShowDialog() == true)
+            {
+                newModel.Photo = File.ReadAllBytes(fileDialog.FileName);
+                MessageBox.Show("Фотография добавлена");
+            }
+        
 
         }
 
@@ -75,29 +92,42 @@ TechnicWindow technicWindow = new TechnicWindow();
             {
                 MessageBox.Show("Заполните все поля");
             }
-            else
-            {
+            //else
+            //{
 
 
-                Technic technic = new Technic()
-                {
-                    Name = NameTb.Text,
-                    VIN = VINTb.Text,
-                    Description = DescriptionTb.Text,
-
-                   
-
-                    Status = StatusCmb.SelectedItem as Status
-                };
-
-               
-                App.context.Technic.Add(technic);
-                App.context.SaveChanges();
-                MessageBox.Show("Техника добавлена");
+            //    Technic technic = new Technic()
+            //    {
+            //        Name = NameTb.Text,
+            //        VIN = VINTb.Text,
+            //        Description = DescriptionTb.Text,
 
 
-            }
+
+            //        Status = StatusCmb.SelectedItem as Status
+            //    };
+            //App.context.Technic.Add(technic);
+            //App.context.SaveChanges();
+            //MessageBox.Show("Техника добавлена");
+
+            newModel.Name = NameTb.Text;
+            newModel.VIN = VINTb.Text;
+            newModel.Description = DescriptionTb.Text;
+            newModel.Status = StatusCmb.SelectedItem as Status;
+
+
+            App.context.Technic.Add(newModel);
+            App.context.SaveChanges();
+
+            MessageBox.Show("Техника добавлена");
+
+            newModel = new Technic(); // подготовка для следующей записи
+
+
+
+
+        }
 
         }
     }
-}
+
