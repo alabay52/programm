@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:programm.Windows"
         mc:Ignorable="d"
-               Title="MaintenanceRegistrationTechnWindow" Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen">
-    <Grid Background="#D9D9D9">
+               Title="MaintenanceRegistrationTechnWindow" Height="1080" Width="1920"  WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Grid Background="#3D4347">
         <Grid.RowDefinitions>
             <RowDefinition Height="200" />
             <RowDefinition Height="880" />
 
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="20">
+        <Grid Grid.Row="0" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="20" />
@@ -34,16 +34,16 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Grid.RowSpan="3" Text="Данный раздел предназначен для работы техникой"/>
+            <TextBlock Grid.Column="8" FontSize="30" Foreground="White" TextWrapping="Wrap" Grid.RowSpan="3" Text="Данный раздел предназначен для работы техникой"/>
 
 
          
             <Button Grid.Row="0" Grid.Column="6"   Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />
             <Button Grid.Row="0" Grid.Column="4" Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />
 
-            <TextBlock Grid.Column="2" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области"/>
-            <Image Source="/image/LOGO.png" Grid.RowSpan="3" Height="200" Width="200"/>
-            <Image Source="/image/PROFILE.png" Grid.RowSpan="3" Height="200" Width="200" Grid.Column="10"/>
+            <TextBlock Foreground="White" Grid.Column="2" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области"/>
+            <Image Source="/image/LOGO2.png" Grid.RowSpan="3" Height="170" Width="200"/>
+            <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
 
         </Grid>
 
@@ -54,9 +54,9 @@
 
         <Grid Grid.Row="1">
             <Grid.Background>
-                <ImageBrush ImageSource="C:\Users\СочневКлюев\source\repos\programm\programm\image\BACKGROUND.png"></ImageBrush>
+                <ImageBrush ImageSource="\image\BACKGROUND.png"></ImageBrush>
             </Grid.Background>
-            <Grid Margin="100" Background="#D9D9D9">
+            <Grid Margin="40" Background="#776C76">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="800" />

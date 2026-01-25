@@ -24,7 +24,7 @@ namespace programm.Modl
         public string VIN { get; set; }
         public string Description { get; set; }
         public byte[] Photo { get; set; }
-        public Nullable<int> IdStatus { get; set; }
+        public int IdStatus { get; set; }
     
         public virtual Status Status { get; set; }
         public virtual ICollection<TechicalTariff> TechicalTariff { get; set; }

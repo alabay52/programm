@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="IdBooking" />
           </Key>
-          <Property Name="IdBooking" Type="int" Nullable="false" />
+          <Property Name="IdBooking" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdUsers" Type="int" Nullable="false" />
           <Property Name="IdTechnicalTariff" Type="int" Nullable="false" />
           <Property Name="StartDateBooking" Type="date" Nullable="false" />
@@ -45,7 +45,7 @@
           <Key>
             <PropertyRef Name="IdTariff" />
           </Key>
-          <Property Name="IdTariff" Type="int" Nullable="false" />
+          <Property Name="IdTariff" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
@@ -54,7 +54,7 @@
           <Key>
             <PropertyRef Name="IdTechnicalTariff" />
           </Key>
-          <Property Name="IdTechnicalTariff" Type="int" Nullable="false" />
+          <Property Name="IdTechnicalTariff" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdTechical" Type="int" Nullable="false" />
           <Property Name="IdTariff" Type="int" Nullable="false" />
           <Property Name="IdBooking" Type="int" Nullable="false" />
@@ -64,17 +64,17 @@
             <PropertyRef Name="IdTechnical" />
           </Key>
           <Property Name="IdTechnical" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="VIN" Type="nchar" MaxLength="17" />
-          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VIN" Type="nchar" MaxLength="17" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" />
-          <Property Name="IdStatus" Type="int" />
+          <Property Name="IdStatus" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="IdUser" />
           </Key>
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdRole" Type="int" />
           <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
@@ -144,7 +144,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Technic_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
           <End Role="Technic" Type="Self.Technic" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
@@ -214,7 +214,7 @@
           <Key>
             <PropertyRef Name="IdBooking" />
           </Key>
-          <Property Name="IdBooking" Type="Int32" Nullable="false" />
+          <Property Name="IdBooking" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUsers" Type="Int32" Nullable="false" />
           <Property Name="IdTechnicalTariff" Type="Int32" Nullable="false" />
           <Property Name="StartDateBooking" Type="DateTime" Nullable="false" Precision="0" />
@@ -255,7 +255,7 @@
           <Key>
             <PropertyRef Name="IdTariff" />
           </Key>
-          <Property Name="IdTariff" Type="Int32" Nullable="false" />
+          <Property Name="IdTariff" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
@@ -265,7 +265,7 @@
           <Key>
             <PropertyRef Name="IdTechnicalTariff" />
           </Key>
-          <Property Name="IdTechnicalTariff" Type="Int32" Nullable="false" />
+          <Property Name="IdTechnicalTariff" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdTechical" Type="Int32" Nullable="false" />
           <Property Name="IdTariff" Type="Int32" Nullable="false" />
           <Property Name="IdBooking" Type="Int32" Nullable="false" />
@@ -278,11 +278,11 @@
             <PropertyRef Name="IdTechnical" />
           </Key>
           <Property Name="IdTechnical" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="VIN" Type="String" MaxLength="17" FixedLength="true" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VIN" Type="String" MaxLength="17" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="IdStatus" Type="Int32" />
+          <Property Name="IdStatus" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Status" Relationship="Self.FK_Technic_Status" FromRole="Technic" ToRole="Status" />
           <NavigationProperty Name="TechicalTariff" Relationship="Self.FK_TechicalTariff_Technic1" FromRole="Technic" ToRole="TechicalTariff" />
         </EntityType>
@@ -290,7 +290,7 @@
           <Key>
             <PropertyRef Name="IdUser" />
           </Key>
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdRole" Type="Int32" />
           <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
@@ -351,7 +351,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Technic_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
           <End Role="Technic" Type="Self.Technic" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">

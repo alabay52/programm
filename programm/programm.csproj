@@ -110,6 +110,9 @@
     <Compile Include="Windows\BookingWindow.xaml.cs">
       <DependentUpon>BookingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\BookingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ChangePasswordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,21 +210,14 @@
     <Resource Include="image\PROFILE.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\image %283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="image\photo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="image\kvadro.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="image\kvadro1.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="image\LOGO2.png" />
+    <Resource Include="image\PROFILE2.png" />
     <Content Include="Modl\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

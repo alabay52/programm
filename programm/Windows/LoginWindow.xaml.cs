@@ -61,5 +61,11 @@ namespace programm.Window
 
 
         }
+
+        private void ReserPasswordHl_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePasswordWindow changePasswordWindow = new ChangePasswordWindow();
+            changePasswordWindow.ShowDialog();
+        }
     }
 }
