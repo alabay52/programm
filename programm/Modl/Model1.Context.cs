@@ -28,7 +28,6 @@ namespace programm.Modl
         public DbSet<Booking> Booking { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Status> Status { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<TariffRents> TariffRents { get; set; }
         public DbSet<TechicalTariff> TechicalTariff { get; set; }
         public DbSet<Technic> Technic { get; set; }

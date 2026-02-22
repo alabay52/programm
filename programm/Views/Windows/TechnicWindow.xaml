@@ -74,14 +74,14 @@
                     <RowDefinition Height="150" />
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
-                <Frame  Grid.ColumnSpan="5" Grid.Row="1" Name="MainFrame"/>
-                <Button  Grid.Column="2" Content="Список техники" Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>
+                <Frame  Grid.ColumnSpan="5" Grid.Row="1" x:Name="MainFrame"/>
+                <Button  Grid.Column="4" Content="Список техники" Height="100" Width="300" Style="{StaticResource CapsuleButton}" Name="TechninBtn" Click="TechninBtn_Click"/>
                 <Button Grid.Column="0" Name="AddBtn" Click="AddBtn_Click"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Добавить технику в прокат" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
-                <Button Name="TechnikDeleteBtn" Click="TechnikDeleteBtn_Click"  Grid.Column="4"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
+                <!--<Button Name="TechnikDeleteBtn" Click="TechnikDeleteBtn_Click"  Grid.Column="4"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Удалить технику с проката" TextWrapping="Wrap" TextAlignment="Center"/>
-                </Button>
+                </Button>-->
                 <!--<Button Name="RegisterMaintenanceBtn" Click="RegisterMaintenanceBtn_Click"  Grid.Column="6"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock  Text="Зарегистрировать технику для проведения ТО" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>-->

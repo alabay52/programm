@@ -4,11 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3cea3816df30450eb8165b2d6dc95a7b" Name="Diagram1">
+      <Diagram DiagramId="e368c57bc5954dd4953eaf4930bca4c6" Name="Diagram1">
         <EntityTypeShape EntityType="SochnevBd2Model.Booking" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SochnevBd2Model.Role" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SochnevBd2Model.Status" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SochnevBd2Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SochnevBd2Model.TariffRents" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SochnevBd2Model.TechicalTariff" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SochnevBd2Model.Technic" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />

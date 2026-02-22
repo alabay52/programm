@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using programm.Views.Windows;
 using programm.Window;
 
 namespace programm.Windows
@@ -40,6 +41,19 @@ namespace programm.Windows
             profileWindow.Show();
             Close();
         }
+
+        private void TechninBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            //MainFrame.Navigate(new TechnicPages());
+
+            ListTechnicWindow listtechnicWindow = new ListTechnicWindow();
+            listtechnicWindow.Show();
+            Close();
+
+        }
+
+
 
         //private void RegisterMaintenanceBtn_Click(object sender, RoutedEventArgs e)
         //{

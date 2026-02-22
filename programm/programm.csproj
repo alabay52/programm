@@ -89,9 +89,6 @@
     <Compile Include="Modl\Status.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modl\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modl\TariffRents.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -104,34 +101,41 @@
     <Compile Include="Modl\Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AddTechnicWindow.xaml.cs">
+    <Compile Include="Views\Pages\TechnicPages.xaml.cs">
+      <DependentUpon>TechnicPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\AddTechnicWindow.xaml.cs">
       <DependentUpon>AddTechnicWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\BookingHistoryWindow.xaml.cs">
+    <Compile Include="Views\Windows\BookingHistoryWindow.xaml.cs">
       <DependentUpon>BookingHistoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\BookingWindow.xaml.cs">
+    <Compile Include="Views\Windows\BookingWindow.xaml.cs">
       <DependentUpon>BookingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ChangePasswordWindow.xaml.cs">
+    <Compile Include="Views\Windows\ChangePasswordWindow.xaml.cs">
       <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\LoginWindow.xaml.cs">
+    <Compile Include="Views\Windows\ListTechnicWindow.xaml.cs">
+      <DependentUpon>ListTechnicWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MaintenanceRegistrationTechnWindow.xaml.cs">
-      <DependentUpon>MaintenanceRegistrationTechnWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ProfileWindow.xaml.cs">
+    <Compile Include="Views\Windows\ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\TechnicWindow.xaml.cs">
+    <Compile Include="Views\Windows\TechnicWindow.xaml.cs">
       <DependentUpon>TechnicWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\TechnikDeleteWindow.xaml.cs">
+    <Compile Include="Views\Windows\TechnikDeleteWindow.xaml.cs">
       <DependentUpon>TechnikDeleteWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Windows\addingReservationWindow.xaml">
+    <Page Include="Views\Pages\TechnicPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\addingReservationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -139,43 +143,43 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Windows\addingReservationWindow.xaml.cs">
+    <Compile Include="Views\Windows\addingReservationWindow.xaml.cs">
       <DependentUpon>addingReservationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Windows\AddTechnicWindow.xaml">
+    <Page Include="Views\Windows\AddTechnicWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\BookingHistoryWindow.xaml">
+    <Page Include="Views\Windows\BookingHistoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\BookingWindow.xaml">
+    <Page Include="Views\Windows\BookingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ChangePasswordWindow.xaml">
+    <Page Include="Views\Windows\ChangePasswordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\LoginWindow.xaml">
+    <Page Include="Views\Windows\ListTechnicWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MaintenanceRegistrationTechnWindow.xaml">
+    <Page Include="Views\Windows\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ProfileWindow.xaml">
+    <Page Include="Views\Windows\ProfileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\TechnicWindow.xaml">
+    <Page Include="Views\Windows\TechnicWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\TechnikDeleteWindow.xaml">
+    <Page Include="Views\Windows\TechnikDeleteWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +232,8 @@
     <Resource Include="image\LOGO2.png" />
     <Resource Include="image\PROFILE2.png" />
     <Resource Include="image\LOGO2.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Modl\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
