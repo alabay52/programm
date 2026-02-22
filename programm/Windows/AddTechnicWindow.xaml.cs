@@ -128,6 +128,10 @@ TechnicWindow technicWindow = new TechnicWindow();
 
         }
 
+        private void ProfileBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
+    }
     }
 

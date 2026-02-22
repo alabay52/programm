@@ -34,6 +34,13 @@ namespace programm.Windows
             Close();
         }
 
+        private void ProfileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProfileWindow profileWindow = new ProfileWindow();
+            profileWindow.Show();
+            Close();
+        }
+
         //private void RegisterMaintenanceBtn_Click(object sender, RoutedEventArgs e)
         //{
         //    MaintenanceRegistrationTechnWindow maintenanceRegistrationTechnWindow = new MaintenanceRegistrationTechnWindow();

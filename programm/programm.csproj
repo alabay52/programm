@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>image\LOGO2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -119,6 +122,9 @@
     <Compile Include="Windows\MaintenanceRegistrationTechnWindow.xaml.cs">
       <DependentUpon>MaintenanceRegistrationTechnWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ProfileWindow.xaml.cs">
+      <DependentUpon>ProfileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\TechnicWindow.xaml.cs">
       <DependentUpon>TechnicWindow.xaml</DependentUpon>
     </Compile>
@@ -158,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\MaintenanceRegistrationTechnWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ProfileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,7 +216,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\BACKGROUND.png" />
-    <Resource Include="image\LOGO.png" />
     <Resource Include="image\PROFILE.png" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +227,7 @@
   <ItemGroup>
     <Resource Include="image\LOGO2.png" />
     <Resource Include="image\PROFILE2.png" />
+    <Resource Include="image\LOGO2.ico" />
     <Content Include="Modl\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

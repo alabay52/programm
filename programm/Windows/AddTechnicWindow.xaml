@@ -38,12 +38,16 @@
 
 
          
-            <Button Grid.Row="0" Grid.Column="6"   Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />
+            <!--<Button Grid.Row="0" Grid.Column="6"   Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />-->
             <Button Grid.Row="0" Grid.Column="4" Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />
 
             <TextBlock Foreground="White" Grid.Column="2" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области"/>
             <Image Source="/image/LOGO2.png" Grid.RowSpan="3" Height="170" Width="200"/>
-            <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
+
+            <Button Height="170" Width="200" Grid.RowSpan="3"  Grid.Column="10" Background="Transparent" Name="ProfileBtn" Click="ProfileBtn_Click" BorderThickness="0">
+                <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
+            </Button>
+            
 
         </Grid>
 

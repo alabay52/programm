@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:programm.Windows"
         mc:Ignorable="d"
-        Title="TechnicWindow"  Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+        Title="Управление техникой"  Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen">
     <Grid Background="#3D4347">
         <Grid.RowDefinitions>
             <RowDefinition Height="200" />
@@ -37,12 +37,14 @@
 
 
           
-            <Button Grid.Row="0" Grid.Column="6"   Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />
-            <Button Grid.Column="4" Grid.Row="0" FontWeight="Black"  Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />
+            <!--<Button Grid.Row="0" Grid.Column="6"   Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />
+            <Button Grid.Column="4" Grid.Row="0" FontWeight="Black"  Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />-->
 
             <TextBlock Grid.Column="2" Foreground="White" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области" />
             <Image Source="/image/LOGO2.png" Grid.RowSpan="3" Height="170" Width="200"/>
-            <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
+            <Button Height="170" Width="200" Grid.RowSpan="3"  Grid.Column="10" Background="Transparent" Name="ProfileBtn" Click="ProfileBtn_Click" BorderThickness="0">
+                <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
+            </Button>
 
         </Grid>
 
@@ -55,7 +57,11 @@
             <Grid.Background>
                 <ImageBrush ImageSource="\image\BACKGROUND.png"></ImageBrush>
             </Grid.Background>
+        
+
+
             <Grid Margin="40" Background="#776C76">
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="10" />
@@ -68,7 +74,7 @@
                     <RowDefinition Height="150" />
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
-
+                <Frame  Grid.ColumnSpan="5" Grid.Row="1" Name="MainFrame"/>
                 <Button  Grid.Column="2" Content="Список техники" Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>
                 <Button Grid.Column="0" Name="AddBtn" Click="AddBtn_Click"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Добавить технику в прокат" TextWrapping="Wrap" TextAlignment="Center"/>
@@ -80,6 +86,7 @@
                     <TextBlock  Text="Зарегистрировать технику для проведения ТО" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>-->
             </Grid>
+           
         </Grid>
     </Grid>
 </Window>

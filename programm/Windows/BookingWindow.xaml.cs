@@ -31,6 +31,11 @@ namespace programm.Window
             this.Hide();
         }
 
-
+        private void ProfileBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ProfileWindow profileWindow = new ProfileWindow();
+            profileWindow.Show();
+            Close();
+        }
     }
 }

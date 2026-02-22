@@ -36,13 +36,13 @@
             <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Grid.RowSpan="3" Text="Данный раздел предназначен для работы бронью" Foreground="White"/>
 
 
-            <Button Grid.Row="0" Grid.Column="4" FontWeight="Black"  Height="60" Width="230" Content="Бронирование" Style="{StaticResource CapsuleButton}" />
-            <Button Grid.Row="0" Grid.Column="6"    Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />
 
 
             <TextBlock Grid.Column="2" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области" Foreground="White"/>
             <Image Source="/image/LOGO2.png" Grid.RowSpan="3" Height="170" Width="200"/>
-            <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
+            <Button Height="170" Width="200" Grid.RowSpan="3"  Grid.Column="10" Background="Transparent" Name="ProfileBtn" Click="ProfileBtn_Click"  BorderThickness="0">
+                <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
+            </Button>
 
         </Grid>
 
@@ -70,14 +70,14 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
 
-                <Button Name="statusEquipmentBtn" Click="statusEquipmentBtn_Click" Grid.Column="0" Content="Статус техники" Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>
-                <Button Grid.Column="2"   Height="100" Width="300" Style="{StaticResource CapsuleButton}">
+                <Button Name="statusEquipmentBtn" Click="statusEquipmentBtn_Click" Grid.Column="4" Content="Статус техники" Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>
+                <!--<Button Grid.Column="2"   Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Подтверждение онлайн бронирования" TextWrapping="Wrap" TextAlignment="Center"/>
-                </Button>
-                <Button Name="AddReservation" Click="AddReservation_Click" Grid.Column="4"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
+                </Button>-->
+                <Button Name="AddReservation" Click="AddReservation_Click" Grid.Column="0"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Добавление бронирования" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
-                <Button Name="HistoryBooking" Click="HistoryBooking_Click" Grid.Column="6" Content="История бронирования " Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>
+                <Button Name="HistoryBooking" Click="HistoryBooking_Click" Grid.Column="2" Content="История бронирования " Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>
             </Grid>
         </Grid>
     </Grid>

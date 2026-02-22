@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:programm.Window"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="550" Width="900" WindowStartupLocation="CenterScreen">
+        Title="Авторизация" Height="550" Width="900" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid>
             <!-- Две колонки -->
@@ -31,7 +31,7 @@
             <Grid Grid.Column="1" Margin="40" Grid.Row="1">
                 <Grid.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                        <GradientStop Color="#3D4347" Offset="0"/>
+                        <GradientStop Color="#776C76" Offset="0"/>
                         <GradientStop Color="#776C76" Offset="1"/> 
                     </LinearGradientBrush>
                 </Grid.Background>
@@ -53,8 +53,8 @@
        FontWeight="SemiBold"
        Margin="0,0,0,0"/>
                     <TextBox x:Name="LoginBox"
-                       
-                         FontSize="14"
+                       Height="25"
+                         FontSize="12"
                             
                          Margin="0,0,0,10"/>
 
@@ -66,7 +66,8 @@ Margin="0,0,0,0"/>
 
 
                     <PasswordBox x:Name="PasswordBox"
-                             FontSize="14"
+                             FontSize="12"
+                                 Height="25"
                              Margin="0,0,0,20"/>
 
                     <!-- Кнопка Войти -->
@@ -90,9 +91,9 @@ Margin="0,0,0,0"/>
                     </Button>
 
                     <!-- Ссылки и чекбокс -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,10">
                         <TextBlock>
-                        <Hyperlink Name="ReserPasswordHl" Click="ReserPasswordHl_Click" NavigateUri="#" >Забыл пароль</Hyperlink>
+                        <Hyperlink Name="ReserPasswordHl" Click="ReserPasswordHl_Click" NavigateUri="#" >Сменить пароль</Hyperlink>
                         </TextBlock>
                         <TextBlock Text="   "/>
                         <!--<TextBlock>
@@ -100,9 +101,9 @@ Margin="0,0,0,0"/>
                         </TextBlock>-->
                     </StackPanel>
 
-                    <CheckBox x:Name="RememberCheckBox"
+                    <!--<CheckBox x:Name="RememberCheckBox"
                           Content="Запомнить меня"
-                          HorizontalAlignment="Center"/>
+                          HorizontalAlignment="Center"/>-->
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#3D4347">
