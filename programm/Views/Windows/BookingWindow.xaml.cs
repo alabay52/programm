@@ -7,9 +7,11 @@ namespace programm.Window
     /// </summary>
     public partial class BookingWindow
     {
+
         public BookingWindow()
         {
             InitializeComponent();
+
         }
 
         private void statusEquipmentBtn_Click(object sender, System.Windows.RoutedEventArgs e)

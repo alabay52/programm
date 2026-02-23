@@ -38,8 +38,7 @@
 
 
          
-            <!--<Button Grid.Row="0" Grid.Column="6"   Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />-->
-            <Button Grid.Row="0" Grid.Column="4" Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />
+         
 
             <TextBlock Foreground="White" Grid.Column="2" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области"/>
             <Image Source="/image/LOGO2.png" Grid.RowSpan="3" Height="170" Width="200"/>
@@ -60,7 +59,9 @@
             <Grid.Background>
                 <ImageBrush ImageSource="\image\BACKGROUND.png"></ImageBrush>
             </Grid.Background>
+            
             <Grid Margin="40" Background="#776C76">
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="800" />
@@ -70,6 +71,7 @@
                     <RowDefinition Height="1*" />
                     <RowDefinition Height="80" />
                 </Grid.RowDefinitions>
+                
                 <Grid Grid.Row="1" Margin="30">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
@@ -116,6 +118,7 @@
 
             </Grid>
         </Grid>
+        
     </Grid>
 </Window>
 

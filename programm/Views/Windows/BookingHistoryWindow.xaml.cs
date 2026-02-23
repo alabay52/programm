@@ -1,6 +1,4 @@
-﻿using programm.Window;
-
-namespace programm.Windows
+﻿namespace programm.Windows
 {
     /// <summary>
     /// Логика взаимодействия для BookingHistoryWindow.xaml
@@ -14,9 +12,7 @@ namespace programm.Windows
 
         private void BackBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            BookingWindow AddingReservationWindow = new BookingWindow();
-            AddingReservationWindow.Show();
-            this.Hide();
+
         }
     }
 }

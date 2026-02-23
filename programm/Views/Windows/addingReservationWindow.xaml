@@ -36,9 +36,7 @@
             <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Foreground="White" Grid.RowSpan="3" Text="Данный раздел предназначен для работы бронью"/>
 
 
-            <Button Grid.Row="0" Grid.Column="4" FontWeight="Black"  Height="60" Width="230" Content="Бронирование" Style="{StaticResource CapsuleButton}" />
-            <Button Grid.Row="0" Grid.Column="6"   Height="60" Width="230" Content="Координация" Style="{StaticResource CapsuleButton}" />
-            <Button Name="TechnikBtn" Click="TechnikBtn_Click" Grid.Column="4" Grid.Row="2"  Height="60" Width="220" Content="Техника" Style="{StaticResource CapsuleButton}" />
+           
 
             <TextBlock Grid.Column="2" FontSize="30" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области"/>
             <Image Source="/image/LOGO2.png" Grid.RowSpan="3" Height="170" Width="200"/>
@@ -56,53 +54,54 @@
                 <ImageBrush ImageSource="\image\BACKGROUND.png"></ImageBrush>
             </Grid.Background>
             <Grid Margin="40" Background="#776C76">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="10" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="100" />
-                </Grid.RowDefinitions>
-                <Button Grid.Row="1" Grid.Column="0" Height="60" Width="230" Content="Сохранить" HorizontalAlignment="Right" Style="{StaticResource CapsuleButton}"/>
-                <Button Grid.Row="1" Grid.Column="2" Height="60" Width="230" Content="Удалить" HorizontalAlignment="Left" Style="{StaticResource CapsuleButton}"/>
-                <Button Name="BackBtn" Click="BackBtn_Click" Grid.Row="1" Grid.Column="2" Height="60" Width="230" Content="Назад" HorizontalAlignment="Right" Style="{StaticResource CapsuleButton}"/>
-                <Grid Grid.Column="0" Margin="20 100">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="300" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
+                <Grid Margin="10">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="50" />
-                     
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="Введите ФИО клиента" FontSize="25"/>
-                    <TextBlock Grid.Row="2" Text="Контактный телефон" FontSize="25"/>
-                    <TextBlock Grid.Row="4" Text="Серия и номер паспорта" FontSize="25"/>
-                    <TextBlock Grid.Row="6" Text="Название техники" FontSize="25"/>
-                    <TextBlock Grid.Row="8" Text="Дата бронирования" FontSize="25"/>
-                    <TextBlock Grid.Row="10" Text="Количество часов" FontSize="25"/>
-                    <TextBlock Grid.Row="12" Text="Сумма " FontSize="25" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Column="1" Grid.Row="0"/>
-                    <TextBox Grid.Column="1" Grid.Row="2"/>
-                    <TextBox Grid.Column="1" Grid.Row="4"/>
-                    <TextBox Grid.Column="1" Grid.Row="6"/>
-                    <TextBox Grid.Column="1" Grid.Row="8"/>
-                    <TextBox Grid.Column="1" Grid.Row="10"/>
-                    <TextBox Grid.Column="1" Grid.Row="12" Width="300" HorizontalAlignment="Left"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Пользователь -->
+                    <TextBlock Grid.Row="0" Grid.Column="0" FontSize="20" Text="Клиент:" Margin="5"/>
+                    <ComboBox x:Name="cmbUser" Grid.Row="0" Grid.Column="1"  Margin="5" DisplayMemberPath="FullName" SelectedValuePath="IdUser"/>
+
+                    <!-- Техника -->
+                    <TextBlock Grid.Row="1" Grid.Column="0" FontSize="20" Text="Техника:" Margin="5"/>
+                    <ComboBox x:Name="cmbTechnic" Grid.Row="1" Grid.Column="1" Margin="5" DisplayMemberPath="Name" SelectedValuePath="IdTechnic"/>
+
+                    <!-- Тариф -->
+                    <TextBlock Grid.Row="2" Grid.Column="0" FontSize="20" Text="Тариф:" Margin="5"/>
+                    <ComboBox x:Name="cmbTariff" Grid.Row="2" Grid.Column="1" Margin="5" DisplayMemberPath="DisplayName" SelectedValuePath="IdTariff">
+                        <!-- DisplayName можно задать через форматирование, но проще в коде сделать свойство -->
+                    </ComboBox>
+
+                    <!-- Дата начала -->
+                    <TextBlock Grid.Row="3" Grid.Column="0" FontSize="20" Text="Дата начала:" Margin="5"/>
+                    <DatePicker x:Name="dpStartDate" Grid.Row="3" Grid.Column="1" Margin="5" SelectedDate="{Binding StartDate}"/>
+
+                    <!-- Дата окончания -->
+                    <TextBlock Grid.Row="4" Grid.Column="0" FontSize="20" Text="Дата окончания:" Margin="5"/>
+                    <DatePicker x:Name="dpEndDate" Grid.Row="4" Grid.Column="1" Margin="5" SelectedDate="{Binding EndDate}"/>
+
+                    <!-- Цена -->
+                    <TextBlock Grid.Row="5" Grid.Column="0" FontSize="20" Text="Цена:" Margin="5"/>
+                    <TextBox x:Name="txtPrice" Grid.Row="5" Grid.Column="1" Margin="5" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <!-- Кнопки -->
+                    <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click" Width="180" Margin="5"  Style="{StaticResource CapsuleButton}"/>
+                        <Button x:Name="btnCancel" Content="Отмена" Width="180" Margin="5"  Style="{StaticResource CapsuleButton}"/>
+                    </StackPanel>
                 </Grid>
             </Grid>
         </Grid>
