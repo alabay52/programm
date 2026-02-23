@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
+using programm.Modl;
 using programm.Window;
 namespace programm
 {
@@ -14,6 +17,25 @@ namespace programm
             InitializeComponent();
             //_currentUserId = currentUserId;
             //LoadData();
+            cmbTechnic.SelectedValuePath = "IdTechnical";
+            cmbTechnic.DisplayMemberPath = "Name";
+            cmbTechnic.ItemsSource = App.context.Technic.ToList();
+
+            cmbTariff.SelectedValuePath = "IdTariff";
+            cmbTariff.DisplayMemberPath = "Name";
+            cmbTariff.ItemsSource = App.context.TariffRents.ToList();
+            var userRole = App.context.Role.FirstOrDefault(r => r.Name == "Пользователь");
+            if (userRole != null)
+            {
+                cmbUser.ItemsSource = App.context.Users
+                    .Where(u => u.IdRole == userRole.IdRole)
+                    .ToList();
+            }
+            else
+            {
+                // Если роль не найдена — можно показать пустой список или сообщение
+                cmbUser.ItemsSource = new List<Users>();
+            }
         }
 
         private void BackBtn_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -131,6 +153,8 @@ namespace programm
             //{
             //    MessageBox.Show($"Ошибка: {ex.Message}");
         }
+
+
     }
 
 }
