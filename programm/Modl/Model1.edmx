@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище SochnevBd22Model" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище SochnevBd2Model" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Booking">
           <Key>
             <PropertyRef Name="IdBooking" />
@@ -99,7 +99,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Booking_Users2">
+        <Association Name="FK_Booking_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -111,7 +111,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Booking_Users3">
+        <Association Name="FK_Booking_Users1">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -147,7 +147,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище SochnevBd22ModelContainer">
+        <EntityContainer Name="Хранилище SochnevBd2ModelContainer">
           <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
@@ -163,11 +163,11 @@
             <End Role="Technic" EntitySet="Technic" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
-          <AssociationSet Name="FK_Booking_Users2" Association="Self.FK_Booking_Users2">
+          <AssociationSet Name="FK_Booking_Users" Association="Self.FK_Booking_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
-          <AssociationSet Name="FK_Booking_Users3" Association="Self.FK_Booking_Users3">
+          <AssociationSet Name="FK_Booking_Users1" Association="Self.FK_Booking_Users1">
             <End Role="Users" EntitySet="Users" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
@@ -184,7 +184,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SochnevBd22Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SochnevBd2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Booking">
           <Key>
             <PropertyRef Name="IdBooking" />
@@ -199,8 +199,8 @@
           <Property Name="IdAdministrotor" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TariffRents" Relationship="Self.FK_Booking_TariffRents" FromRole="Booking" ToRole="TariffRents" />
           <NavigationProperty Name="Technic" Relationship="Self.FK_Booking_Technic" FromRole="Booking" ToRole="Technic" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Booking_Users2" FromRole="Booking" ToRole="Users" />
-          <NavigationProperty Name="Users1" Relationship="Self.FK_Booking_Users3" FromRole="Booking" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Booking_Users" FromRole="Booking" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="Self.FK_Booking_Users1" FromRole="Booking" ToRole="Users" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -263,8 +263,8 @@
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PassportData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Booking" Relationship="Self.FK_Booking_Users2" FromRole="Users" ToRole="Booking" />
-          <NavigationProperty Name="Booking1" Relationship="Self.FK_Booking_Users3" FromRole="Users" ToRole="Booking" />
+          <NavigationProperty Name="Booking" Relationship="Self.FK_Booking_Users" FromRole="Users" ToRole="Booking" />
+          <NavigationProperty Name="Booking1" Relationship="Self.FK_Booking_Users1" FromRole="Users" ToRole="Booking" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Booking_TariffRents">
@@ -291,7 +291,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Booking_Users2">
+        <Association Name="FK_Booking_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -303,7 +303,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Booking_Users3">
+        <Association Name="FK_Booking_Users1">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
@@ -339,7 +339,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SochnevBd22Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SochnevBd2Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Booking" EntityType="Self.Booking" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Status" EntityType="Self.Status" />
@@ -355,11 +355,11 @@
             <End Role="Technic" EntitySet="Technic" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
-          <AssociationSet Name="FK_Booking_Users2" Association="Self.FK_Booking_Users2">
+          <AssociationSet Name="FK_Booking_Users" Association="Self.FK_Booking_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
-          <AssociationSet Name="FK_Booking_Users3" Association="Self.FK_Booking_Users3">
+          <AssociationSet Name="FK_Booking_Users1" Association="Self.FK_Booking_Users1">
             <End Role="Users" EntitySet="Users" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
@@ -377,9 +377,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SochnevBd22ModelContainer" CdmEntityContainer="SochnevBd22Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SochnevBd2ModelContainer" CdmEntityContainer="SochnevBd2Entities">
           <EntitySetMapping Name="Booking">
-            <EntityTypeMapping TypeName="SochnevBd22Model.Booking">
+            <EntityTypeMapping TypeName="SochnevBd2Model.Booking">
               <MappingFragment StoreEntitySet="Booking">
                 <ScalarProperty Name="IdBooking" ColumnName="IdBooking" />
                 <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
@@ -393,7 +393,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="SochnevBd22Model.Role">
+            <EntityTypeMapping TypeName="SochnevBd2Model.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -401,7 +401,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="SochnevBd22Model.Status">
+            <EntityTypeMapping TypeName="SochnevBd2Model.Status">
               <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -409,7 +409,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SochnevBd22Model.sysdiagrams">
+            <EntityTypeMapping TypeName="SochnevBd2Model.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -420,7 +420,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TariffRents">
-            <EntityTypeMapping TypeName="SochnevBd22Model.TariffRents">
+            <EntityTypeMapping TypeName="SochnevBd2Model.TariffRents">
               <MappingFragment StoreEntitySet="TariffRents">
                 <ScalarProperty Name="IdTariff" ColumnName="IdTariff" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -430,7 +430,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Technic">
-            <EntityTypeMapping TypeName="SochnevBd22Model.Technic">
+            <EntityTypeMapping TypeName="SochnevBd2Model.Technic">
               <MappingFragment StoreEntitySet="Technic">
                 <ScalarProperty Name="IdTechnical" ColumnName="IdTechnical" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -442,7 +442,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="SochnevBd22Model.Users">
+            <EntityTypeMapping TypeName="SochnevBd2Model.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />

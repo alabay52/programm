@@ -13,10 +13,10 @@ namespace programm.Modl
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SochnevBd22Entities : DbContext
+    public partial class SochnevBd2Entities : DbContext
     {
-        public SochnevBd22Entities()
-            : base("name=SochnevBd22Entities")
+        public SochnevBd2Entities()
+            : base("name=SochnevBd2Entities")
         {
         }
     

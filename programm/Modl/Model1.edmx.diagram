@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c1ecf5424f9f4e8d84baa8ec1f4a4110" Name="Diagram1">
-        <EntityTypeShape EntityType="SochnevBd22Model.Booking" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SochnevBd22Model.Role" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SochnevBd22Model.Status" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SochnevBd22Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SochnevBd22Model.TariffRents" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SochnevBd22Model.Technic" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SochnevBd22Model.Users" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <AssociationConnector Association="SochnevBd22Model.FK_Booking_TariffRents" ManuallyRouted="false" />
-        <AssociationConnector Association="SochnevBd22Model.FK_Booking_Technic" ManuallyRouted="false" />
-        <AssociationConnector Association="SochnevBd22Model.FK_Booking_Users2" ManuallyRouted="false" />
-        <AssociationConnector Association="SochnevBd22Model.FK_Booking_Users3" ManuallyRouted="false" />
-        <AssociationConnector Association="SochnevBd22Model.FK_Users_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="SochnevBd22Model.FK_Technic_Status" ManuallyRouted="false" />
+      <Diagram DiagramId="2041ef280735409480f9cb4740cd4f07" Name="Diagram1">
+        <EntityTypeShape EntityType="SochnevBd2Model.Booking" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBd2Model.Role" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBd2Model.Status" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBd2Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBd2Model.TariffRents" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBd2Model.Technic" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SochnevBd2Model.Users" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="SochnevBd2Model.FK_Booking_TariffRents" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBd2Model.FK_Booking_Technic" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBd2Model.FK_Booking_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBd2Model.FK_Booking_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBd2Model.FK_Users_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="SochnevBd2Model.FK_Technic_Status" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

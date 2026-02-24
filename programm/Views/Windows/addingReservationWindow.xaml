@@ -40,7 +40,9 @@
 
             <TextBlock Grid.Column="2" FontSize="30" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области"/>
             <Image Source="/image/LOGO2.png" Grid.RowSpan="3" Height="170" Width="200"/>
-            <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
+            <Button Height="170" Width="200" Grid.RowSpan="3"  Grid.Column="10" Background="Transparent" Name="ProfileBtn" Click="ProfileBtn_Click"  BorderThickness="0">
+                <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
+            </Button>
 
         </Grid>
         
@@ -100,7 +102,7 @@
                     <!-- Кнопки -->
                     <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
                         <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click" Width="180" Margin="5"  Style="{StaticResource CapsuleButton}"/>
-                        <Button x:Name="btnCancel" Content="Отмена" Width="180" Margin="5"  Style="{StaticResource CapsuleButton}"/>
+                        <Button x:Name="btnCancel" Content="Назад" Width="180" Margin="5" Click="btnCancel_Click"  Style="{StaticResource CapsuleButton}"/>
                     </StackPanel>
                 </Grid>
             </Grid>

@@ -1,5 +1,5 @@
-﻿using programm.Modl;
-using System.Windows;
+﻿using System.Windows;
+using programm.Modl;
 
 
 namespace programm
@@ -9,7 +9,7 @@ namespace programm
     /// </summary>
     public partial class App : Application
     {
-      public static SochnevBd22Entities context = new SochnevBd22Entities();
+        public static SochnevBd2Entities context = new SochnevBd2Entities();
         public static Users currentUser { get; set; }
         public static Users selectedUser { get; set; }
         public static TariffRents currentTarif { get; set; }
