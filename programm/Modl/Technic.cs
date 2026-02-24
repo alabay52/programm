@@ -16,7 +16,7 @@ namespace programm.Modl
     {
         public Technic()
         {
-            this.TechicalTariff = new HashSet<TechicalTariff>();
+            this.Booking = new HashSet<Booking>();
         }
     
         public int IdTechnical { get; set; }
@@ -26,7 +26,7 @@ namespace programm.Modl
         public byte[] Photo { get; set; }
         public int IdStatus { get; set; }
     
+        public virtual ICollection<Booking> Booking { get; set; }
         public virtual Status Status { get; set; }
-        public virtual ICollection<TechicalTariff> TechicalTariff { get; set; }
     }
 }

@@ -14,21 +14,18 @@ namespace programm.Modl
     
     public partial class Booking
     {
-        public Booking()
-        {
-            this.TechicalTariff = new HashSet<TechicalTariff>();
-        }
-    
         public int IdBooking { get; set; }
         public int IdUsers { get; set; }
-        public int IdTechnicalTariff { get; set; }
+        public int IdTariff { get; set; }
+        public int IdTechnical { get; set; }
         public System.DateTime StartDateBooking { get; set; }
-        public decimal Price { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public Nullable<System.DateTime> EndDateBooking { get; set; }
         public int IdAdministrotor { get; set; }
     
+        public virtual TariffRents TariffRents { get; set; }
+        public virtual Technic Technic { get; set; }
         public virtual Users Users { get; set; }
         public virtual Users Users1 { get; set; }
-        public virtual ICollection<TechicalTariff> TechicalTariff { get; set; }
     }
 }

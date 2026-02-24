@@ -12,15 +12,12 @@ namespace programm.Modl
     using System;
     using System.Collections.Generic;
     
-    public partial class TechicalTariff
+    public partial class sysdiagrams
     {
-        public int IdTechnicalTariff { get; set; }
-        public int IdTechical { get; set; }
-        public int IdTariff { get; set; }
-        public int IdBooking { get; set; }
-    
-        public virtual Booking Booking { get; set; }
-        public virtual TariffRents TariffRents { get; set; }
-        public virtual Technic Technic { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

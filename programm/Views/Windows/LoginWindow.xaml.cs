@@ -17,14 +17,14 @@ namespace programm.Window
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
 
-            if (string.IsNullOrEmpty(LoginBox.Text) || string.IsNullOrEmpty(PasswordBox.Password))
+            if (string.IsNullOrEmpty(LoginTb.Text) || string.IsNullOrEmpty(PasswordTb.Password))
             {
                 MessageBox.Show("Заполните поля", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
 
-                App.currentUser = App.context.Users.FirstOrDefault(u => u.Login == LoginBox.Text && u.Password == PasswordBox.Password);
+                App.currentUser = App.context.Users.FirstOrDefault(u => u.Login == LoginTb.Text && u.Password == PasswordTb.Password);
 
                 if (App.currentUser != null)
                 {

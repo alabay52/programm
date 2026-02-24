@@ -81,7 +81,7 @@
 
                     <!-- Тариф -->
                     <TextBlock Grid.Row="2" Grid.Column="0" FontSize="20" Text="Тариф:" Margin="5"/>
-                    <ComboBox x:Name="cmbTariff" Grid.Row="2" Grid.Column="1" Margin="5" DisplayMemberPath="DisplayName" SelectedValuePath="IdTariff">
+                    <ComboBox x:Name="cmbTariff" Grid.Row="2" Grid.Column="1" Margin="5" DisplayMemberPath="DisplayName" SelectedValuePath="IdTariff" >
                         <!-- DisplayName можно задать через форматирование, но проще в коде сделать свойство -->
                     </ComboBox>
 

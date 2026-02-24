@@ -16,7 +16,7 @@ namespace programm.Modl
     {
         public TariffRents()
         {
-            this.TechicalTariff = new HashSet<TechicalTariff>();
+            this.Booking = new HashSet<Booking>();
         }
     
         public int IdTariff { get; set; }
@@ -24,6 +24,6 @@ namespace programm.Modl
         public decimal Price { get; set; }
         public string Description { get; set; }
     
-        public virtual ICollection<TechicalTariff> TechicalTariff { get; set; }
+        public virtual ICollection<Booking> Booking { get; set; }
     }
 }
