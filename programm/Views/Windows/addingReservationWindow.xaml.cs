@@ -66,7 +66,7 @@ namespace programm
                 return;
             }
             // Проверка выбора дат
-            if (dpStartDate.SelectedDate == null || dpEndDate.SelectedDate == null)
+            if (dpStartDate.SelectedDate == null)
             {
                 MessageBox.Show("Выберите даты начала и окончания.");
                 return;
@@ -78,7 +78,7 @@ namespace programm
             Technic selectedTechnic = (Technic)cmbTechnic.SelectedItem;
 
             DateTime start = dpStartDate.SelectedDate.Value.Date;
-            DateTime finish = dpEndDate.SelectedDate.Value.Date;
+            DateTime? finish = dpEndDate.SelectedDate?.Date;
 
             if (finish <= start)
             {
@@ -93,8 +93,29 @@ namespace programm
                 return;
             }
 
-            TimeSpan days = finish - start; // или finish.Subtract(start)
-            decimal totalDays = (decimal)days.TotalDays;
+            decimal price;
+            if (finish == null) // Дата окончания не указана
+            {
+                // Бессрочное бронирование: цена равна тарифу, статус техники меняем на "забронирован"
+                price = selectedTariff.Price;
+                selectedTechnic.IdStatus = 1; // забронирован
+            }
+            else
+            {
+                // Проверка корректности дат
+                if (finish <= start)
+                {
+                    MessageBox.Show("Дата окончания должна быть позже даты начала.");
+                    return;
+                }
+
+                TimeSpan days = finish.Value - start;
+                price = selectedTariff.Price * (decimal)days.TotalDays;
+                selectedTechnic.IdStatus = 2;
+                // Статус техники НЕ меняем (остаётся "не забронирован")
+                // Если нужно принудительно установить "не забронирован", раскомментируйте:
+                // selectedTechnic.IdStatus = 0; 
+            }
 
             Booking booking = new Booking()
             {
@@ -102,13 +123,21 @@ namespace programm
                 IdTariff = selectedTariff.IdTariff,
                 IdTechnical = selectedTechnic.IdTechnical,
                 StartDateBooking = start,
-                Price = selectedTariff.Price * totalDays,
+                Price = price,
                 EndDateBooking = finish,
                 IdAdministrotor = App.currentUser.IdUser
             };
 
-            // Обновление статуса техники
-            selectedTechnic.IdStatus = 1; // Предполагается, что статус 1 означает "занят"
+            //if (dpEndDate != null)
+            //{
+            //    // Обновление статуса техники
+            //    selectedTechnic.IdStatus = 1; // Предполагается, что статус 1 означает "занят"
+            //}
+            //else
+            //{
+            //    selectedTechnic.IdStatus = 2;
+            //}
+
 
             App.context.Booking.Add(booking);
             App.context.SaveChanges();
