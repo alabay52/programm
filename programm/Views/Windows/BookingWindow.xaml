@@ -70,7 +70,7 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
 
-                <Button Name="statusEquipmentBtn" Click="statusEquipmentBtn_Click" Grid.Column="4" Content="Статус техники" Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>
+                <!--<Button Name="statusEquipmentBtn" Click="statusEquipmentBtn_Click" Grid.Column="4" Content="Статус техники" Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>-->
                 <!--<Button Grid.Column="2"   Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Подтверждение онлайн бронирования" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>-->
