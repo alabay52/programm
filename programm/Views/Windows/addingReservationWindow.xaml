@@ -68,39 +68,40 @@
                         <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="650"/>
+                        <ColumnDefinition Width="500"/>
+                        <ColumnDefinition Width="500"/>
+                       
                     </Grid.ColumnDefinitions>
 
                     <!-- Пользователь -->
-                    <TextBlock Grid.Row="0" Grid.Column="0" FontSize="20" Text="Клиент:" Margin="5"/>
+                    <TextBlock Grid.Row="0" Grid.Column="0" FontSize="20" Text="Клиент:" Margin="5" HorizontalAlignment="Right"/>
                     <ComboBox x:Name="cmbUser" Grid.Row="0" Grid.Column="1"  Margin="5" DisplayMemberPath="FullName" SelectedValuePath="IdUser"/>
 
                     <!-- Техника -->
-                    <TextBlock Grid.Row="1" Grid.Column="0" FontSize="20" Text="Техника:" Margin="5"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" FontSize="20" Text="Техника:" Margin="5" HorizontalAlignment="Right"/>
                     <ComboBox x:Name="cmbTechnic" Grid.Row="1" Grid.Column="1" Margin="5" DisplayMemberPath="Name" SelectedValuePath="IdTechnic"/>
 
                     <!-- Тариф -->
-                    <TextBlock Grid.Row="2" Grid.Column="0" FontSize="20" Text="Тариф:" Margin="5"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" FontSize="20" Text="Тариф:" Margin="5" HorizontalAlignment="Right"/>
                     <ComboBox x:Name="cmbTariff" Grid.Row="2" Grid.Column="1" Margin="5" DisplayMemberPath="DisplayName" SelectedValuePath="IdTariff" >
                         <!-- DisplayName можно задать через форматирование, но проще в коде сделать свойство -->
                     </ComboBox>
 
                     <!-- Дата начала -->
-                    <TextBlock Grid.Row="3" Grid.Column="0" FontSize="20" Text="Дата начала:" Margin="5"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" FontSize="20" Text="Дата начала:" Margin="5"/>
                     <DatePicker x:Name="dpStartDate" Grid.Row="3" Grid.Column="1" Margin="5" SelectedDate="{Binding StartDate}"/>
 
                     <!-- Дата окончания -->
-                    <TextBlock Grid.Row="4" Grid.Column="0" FontSize="20" Text="Дата окончания:" Margin="5"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" FontSize="20" Text="Дата окончания:" Margin="5"/>
                     <DatePicker x:Name="dpEndDate" Grid.Row="4" Grid.Column="1" Margin="5" SelectedDate="{Binding EndDate}"/>
 
-                    <!-- Цена -->
-                    <TextBlock Grid.Row="5" Grid.Column="0" FontSize="20" Text="Цена:" Margin="5"/>
-                    <TextBox x:Name="txtPrice" Grid.Row="5" Grid.Column="1" Margin="5" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
+                    <!-- Цена --><!--
+                    <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" FontSize="20" Text="Цена:" Margin="5"/>
+                    <TextBox x:Name="txtPrice" Grid.Row="5" Grid.Column="1" Margin="5" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>-->
 
                     <!-- Кнопки -->
-                    <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                    <StackPanel Grid.Row="6" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
                         <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click" Width="180" Margin="5"  Style="{StaticResource CapsuleButton}"/>
                         <Button x:Name="btnCancel" Content="Назад" Width="180" Margin="5" Click="btnCancel_Click"  Style="{StaticResource CapsuleButton}"/>
                     </StackPanel>

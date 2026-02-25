@@ -24,40 +24,6 @@ namespace programm.Windows
             }
 
 
-            #region 
-            //else
-            //{
-            //    var currentUser = App.context.Users.FirstOrDefault(u => u.Login == LoginTb.Text);
-
-            //    if (currentUser == null)
-            //    {
-            //        MessageBox.Show("Пользователь не найден  ", "Проверьте введеные данные", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    }
-
-            //    if (currentUser != null)
-            //    {
-
-            //        if (App.currentUser.Password == OldPasswordPb.Password && NewPasswordPb.Password == ChangeNewPasswordPb.Password)
-            //        {
-            //            MessageBox.Show("Пароль изменен", "Информация", MessageBoxButton.OK, MessageBoxImage.Warning);
-
-            //            App.currentUser.Password = NewPasswordPb.Password;
-
-            //            App.context.SaveChanges();
-
-            //        }
-
-            //        else
-            //        {
-            //            MessageBox.Show("Старый пароль указан неправильно или несовпадают новые пароли  ", "Проверьте введеные данные", MessageBoxButton.OK, MessageBoxImage.Error);
-
-            //        }
-            //    }
-
-            //}
-            #endregion
-
-
             else
             {
                 // Ищем пользователя по логину
