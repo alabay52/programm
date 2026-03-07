@@ -19,7 +19,9 @@ namespace programm
 
             cmbTechnic.SelectedValuePath = "IdTechnical";
             cmbTechnic.DisplayMemberPath = "Name";
-            cmbTechnic.ItemsSource = App.context.Technic.ToList();
+            cmbTechnic.ItemsSource = App.context.Technic
+       .Where(t => t.IdStatus == 2) // Фильтр по статусу
+       .ToList();
 
             cmbTariff.SelectedValuePath = "IdTariff";
             cmbTariff.DisplayMemberPath = "Name";
@@ -72,7 +74,7 @@ namespace programm
                 return;
             }
 
-            // Получаем выбранные объекты
+
             Users selectedUser = (Users)cmbUser.SelectedItem;
             TariffRents selectedTariff = (TariffRents)cmbTariff.SelectedItem;
             Technic selectedTechnic = (Technic)cmbTechnic.SelectedItem;
@@ -86,35 +88,39 @@ namespace programm
                 return;
             }
 
-            // Проверка текущего администратора
+
             if (App.currentUser == null)
             {
                 MessageBox.Show("Ошибка авторизации администратора.");
                 return;
             }
 
+            DateTime now = DateTime.Now.Date;
+
             decimal price;
-            if (finish == null) // Дата окончания не указана
+            if (finish == null)
             {
-                // Бессрочное бронирование: цена равна тарифу, статус техники меняем на "забронирован"
+                // Бессрочное бронирование: всегда считаем активным
                 price = selectedTariff.Price;
                 selectedTechnic.IdStatus = 1; // забронирован
             }
             else
             {
-                // Проверка корректности дат
-                if (finish <= start)
-                {
-                    MessageBox.Show("Дата окончания должна быть позже даты начала.");
-                    return;
-                }
-
+                // Проверка, что finish > start уже выполнена ранее
                 TimeSpan days = finish.Value - start;
                 price = selectedTariff.Price * (decimal)days.TotalDays;
-                selectedTechnic.IdStatus = 2;
-                // Статус техники НЕ меняем (остаётся "не забронирован")
-                // Если нужно принудительно установить "не забронирован", раскомментируйте:
-                // selectedTechnic.IdStatus = 0; 
+
+                // Определяем статус в зависимости от того, наступила ли дата окончания
+                if (finish.Value > now)
+                {
+                    // Дата окончания ещё не наступила -> бронирование актуально
+                    selectedTechnic.IdStatus = 1; // забронирован
+                }
+                else
+                {
+                    // Дата окончания уже прошла -> техника свободна
+                    selectedTechnic.IdStatus = 2; // не забронирован
+                }
             }
 
             Booking booking = new Booking()
@@ -128,15 +134,7 @@ namespace programm
                 IdAdministrotor = App.currentUser.IdUser
             };
 
-            //if (dpEndDate != null)
-            //{
-            //    // Обновление статуса техники
-            //    selectedTechnic.IdStatus = 1; // Предполагается, что статус 1 означает "занят"
-            //}
-            //else
-            //{
-            //    selectedTechnic.IdStatus = 2;
-            //}
+
 
 
             App.context.Booking.Add(booking);
@@ -145,36 +143,6 @@ namespace programm
             MessageBox.Show("Бронирование успешно сохранено.");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            //App.currentTarif = cmbTariff.SelectedValue as TariffRents;
-
-            //DateTime start = dpStartDate.SelectedDate.Value.Date;
-            //DateTime finish = dpEndDate.SelectedDate.Value.Date;
-            //TimeSpan days = finish.Subtract(start);
-            //Booking booking = new Booking()
-            //{
-            //    IdUsers = cmbUser.SelectedIndex + 1,
-            //    IdTariff = cmbTariff.SelectedIndex + 1,
-            //    IdTechnical = cmbTechnic.SelectedIndex + 1,
-            //    StartDateBooking = start,
-            //    Price = App.currentTarif.Price * (decimal)days.TotalDays,
-            //    EndDateBooking = finish,
-            //    IdAdministrotor = App.currentUser.IdUser
-            //};
-            //App.currentTechnic.IdStatus = 1;
-            //App.context.Booking.Add(booking);
-            //App.context.SaveChanges();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
