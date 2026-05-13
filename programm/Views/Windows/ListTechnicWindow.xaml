@@ -64,10 +64,21 @@
 
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="100" />
                     </Grid.RowDefinitions>
-                    <ListView Name="TechnicLv" Grid.Row="0">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Фильтр:" FontSize="30" HorizontalAlignment="Center"/>
+                        <ComboBox Grid.Column="0" Name="FilterCmb" Width="390" SelectionChanged="FilterCmb_SelectionChanged"  HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Column="1" FontSize="30" HorizontalAlignment="Left" Text="Поиск:"/>
+                        <TextBox Name="SearchTb" Grid.Column="1" HorizontalAlignment="Right" Width="800" TextChanged="SearchTb_TextChanged"/>
+                    </Grid>
+                    <ListView Name="TechnicLv" Grid.Row="1">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="изображение" Width="250">
@@ -92,7 +103,19 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <Button Grid.Row="1" Name="BackBtn" Click="BackBtn_Click"  Height="70" Width="150" Content="Назад" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Right"/>
+                    <Grid Grid.Row="2" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Name="BackBtn" 
+                            Click="BackBtn_Click"  Height="70" 
+                            Width="150" Content="Назад" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Right"/>
+                        <Button Grid.Column="0" Name="DeleteBtn" 
+        Click="DeleteBtn_Click"  Height="70" 
+        Width="auto" Content="Удалить технику" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Right"/>
+                    </Grid>
+
                 </Grid>
 
             </Grid>
