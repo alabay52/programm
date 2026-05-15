@@ -96,9 +96,9 @@ Margin="0,0,0,0"/>
                         <Hyperlink Name="ReserPasswordHl" Click="ReserPasswordHl_Click" NavigateUri="#" >Сменить пароль</Hyperlink>
                         </TextBlock>
                         <TextBlock Text="   "/>
-                        <!--<TextBlock>
-                        <Hyperlink NavigateUri="#" >Регистрация</Hyperlink>
-                        </TextBlock>-->
+                        <TextBlock>
+                        <Hyperlink NavigateUri="#" Name="RegHl" Click="RegHl_Click" >Регистрация</Hyperlink>
+                        </TextBlock>
                     </StackPanel>
 
                     <!--<CheckBox x:Name="RememberCheckBox"

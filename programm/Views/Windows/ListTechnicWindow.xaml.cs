@@ -176,6 +176,20 @@ namespace programm.Views.Windows
                 LoadData(); // перезагружаем данные в любом случае
             }
         }
+
+        private void EditWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Technic selectedTechnic = TechnicLv.SelectedItem as Technic;
+            if (selectedTechnic != null)
+            {
+                EditTechnicWindow editTaskWindow = new EditTechnicWindow(selectedTechnic);
+                if (editTaskWindow.ShowDialog() == true)
+                {
+                    TechnicLv.ItemsSource = App.context.Technic.ToList();
+
+                }
+            }
+        }
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using programm.Windows;
+﻿using programm.Views.Windows;
+using programm.Windows;
 
 namespace programm.Window
 {
@@ -39,5 +40,14 @@ namespace programm.Window
             profileWindow.Show();
             Close();
         }
+
+        private void TariffWindow_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            AddTariffWindow addTariffWindow = new AddTariffWindow();
+            addTariffWindow.Show();
+            Close();
+        }
+
+
     }
 }

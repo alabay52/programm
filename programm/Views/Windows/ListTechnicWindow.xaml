@@ -105,15 +105,19 @@
                     </ListView>
                     <Grid Grid.Row="2" Margin="5">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="9*" />
+                            <ColumnDefinition Width="2*" />
                             <ColumnDefinition Width="1*" />
                         </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Name="BackBtn" 
+                    <Button Grid.Column="2" Name="BackBtn" 
                             Click="BackBtn_Click"  Height="70" 
                             Width="150" Content="Назад" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Right"/>
-                        <Button Grid.Column="0" Name="DeleteBtn" 
+                        <Button Grid.Column="1" Name="DeleteBtn" 
         Click="DeleteBtn_Click"  Height="70" 
-        Width="auto" Content="Удалить технику" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Right"/>
+        Width="auto" Content="Удалить технику" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Center"/>
+                        <Button Grid.Column="0" Name="EditWindow" 
+Click="EditWindow_Click"  Height="70" 
+Width="auto" Content="Редактировать технику" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Right"/>
                     </Grid>
 
                 </Grid>

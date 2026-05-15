@@ -53,6 +53,13 @@ namespace programm.Windows
 
         }
 
+        private void UsersAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddUsersWindow usersWindow = new AddUsersWindow();
+            usersWindow.Show();
+            Close();
+        }
+
 
 
         //private void RegisterMaintenanceBtn_Click(object sender, RoutedEventArgs e)

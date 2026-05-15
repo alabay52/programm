@@ -1,0 +1,124 @@
+﻿<Window x:Class="programm.Views.Windows.AddTariffWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:programm.Views.Windows"
+        mc:Ignorable="d"
+                Title="MainWindow" Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Grid Background="#3D4347">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="880" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="385" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="450" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Foreground="White" Grid.RowSpan="3" Text="Данный раздел предназначен для работы бронью"/>
+
+
+
+
+            <TextBlock Grid.Column="2" FontSize="30" Foreground="White" TextWrapping="Wrap"
+                       VerticalAlignment="Center" Grid.RowSpan="3" Text="Прокат квадроциклов в Москве и области"/>
+            <Image Source="/image/LOGO2.png" Grid.RowSpan="3" Height="170" Width="200"/>
+            <Button Height="170" Width="200" Grid.RowSpan="3"  Grid.Column="10" Background="Transparent" Name="ProfileBtn" Click="ProfileBtn_Click"  BorderThickness="0">
+                <Image Source="/image/PROFILE2.png" Grid.RowSpan="3" Height="170" Width="200" Grid.Column="10"/>
+            </Button>
+
+        </Grid>
+
+
+
+
+
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="\image\BACKGROUND.png"></ImageBrush>
+            </Grid.Background>
+            <Grid Margin="40" Background="#776C76">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="370"/>
+                        <ColumnDefinition Width="500"/>
+                        <ColumnDefinition Width="1*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="3" Grid.RowSpan="3" Margin="5">
+                        <ListView Name="TariffLv" Grid.Row="1">
+                            <ListView.View>
+                                <GridView>
+
+                                    <GridViewColumn Header="Название" Width="150"   DisplayMemberBinding="{Binding Name}"/>
+                                    <GridViewColumn Header="Цена" Width="70" DisplayMemberBinding="{Binding Price, StringFormat={}{0:C0}, ConverterCulture=ru-RU}"/>
+                                    <GridViewColumn Header="Описание" Width="600">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Description}"  TextWrapping="Wrap" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                        
+
+
+                    </Grid>
+                    <Button x:Name="DeleteBtn" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right"
+                            Content="Удалить тариф" Click="DeleteBtn_Click"  Width="auto" Margin="5"  
+Style="{StaticResource CapsuleButton}"/>
+
+
+                    <TextBlock Text="Название тарифа:" FontSize="30" HorizontalAlignment="Left"/>
+                    <TextBox Name="NameTb" Grid.Column="1" Margin="5"/>
+                    <TextBlock Grid.Row="1" Text="Стоимость тарифа (день):" FontSize="30" HorizontalAlignment="Left"/>
+                    <TextBox Name="PriceTb" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+                    <TextBlock Grid.Row="2" Text="Описание:" FontSize="30" HorizontalAlignment="Left"/>
+                    <TextBox Name="Descriptiontb" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+
+                    <!-- Кнопки -->
+                    <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click"  Width="180" Margin="5"  
+                                Style="{StaticResource CapsuleButton}"/>
+                        <Button x:Name="btnCancel" Content="Назад" Width="180" Margin="5"
+                                Click="btnCancel_Click"  Style="{StaticResource CapsuleButton}"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

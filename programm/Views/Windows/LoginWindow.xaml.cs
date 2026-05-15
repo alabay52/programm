@@ -67,5 +67,10 @@ namespace programm.Window
             ChangePasswordWindow changePasswordWindow = new ChangePasswordWindow();
             changePasswordWindow.ShowDialog();
         }
+
+        private void RegHl_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

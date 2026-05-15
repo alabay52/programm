@@ -77,7 +77,15 @@
                 <Button Name="AddReservation" Click="AddReservation_Click" Grid.Column="0"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Добавление бронирования" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
-                <Button Name="HistoryBooking" Click="HistoryBooking_Click" Grid.Column="2" Content="История бронирования " Height="100" Width="300" Style="{StaticResource CapsuleButton}"/>
+                <Button Name="HistoryBooking" Click="HistoryBooking_Click" Grid.Column="2" 
+                        Height="100" Width="300" Style="{StaticResource CapsuleButton}">
+                    <TextBlock Text="История и редактирование бронирований " TextWrapping="Wrap" TextAlignment="Center"/>
+                </Button>
+                <Button Name="TariffWindow" Click="TariffWindow_Click"  Grid.Column="4" 
+          Height="100" Width="300" Style="{StaticResource CapsuleButton}">
+                    <TextBlock Text="Управление тарифами " TextWrapping="Wrap" TextAlignment="Center"/>
+                </Button>
+                
             </Grid>
         </Grid>
     </Grid>
