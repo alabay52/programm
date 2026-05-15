@@ -15,10 +15,7 @@ namespace programm.Window
 
         }
 
-        private void statusEquipmentBtn_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
 
-        }
 
         private void AddReservation_Click(object sender, System.Windows.RoutedEventArgs e)
         {

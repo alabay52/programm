@@ -33,7 +33,7 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Foreground="White" Grid.RowSpan="3" Text="Данный раздел предназначен для работы бронью"/>
+            <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Foreground="White" Grid.RowSpan="3" Text="Данный раздел предназначен для работы с пользователями"/>
 
 
 
@@ -73,7 +73,7 @@
                         <ColumnDefinition Width="450"/>
                         <ColumnDefinition Width="250"/>
                         <ColumnDefinition Width="190"/>
-                        <ColumnDefinition Width="450"/>
+                        <ColumnDefinition Width="490"/>
                         <ColumnDefinition Width="250"/>
                     </Grid.ColumnDefinitions>
 
@@ -104,6 +104,12 @@
                     
                     <Button x:Name="btnCancel" Content="Назад" Grid.Column="6" Grid.Row="7" Width="180" Margin="5" Click="btnCancel_Click"  HorizontalAlignment="Right"  Style="{StaticResource CapsuleButton}"/>
                     <Button x:Name="DeleteBtn" Content="Удалить клиента" Grid.Column="4" Grid.Row="7" Width="220" Margin="5" Click="DeleteBtn_Click"  HorizontalAlignment="Right"  Style="{StaticResource CapsuleButton}"/>
+                    <Button x:Name="EditUsers" 
+                             Grid.Column="4" Grid.Row="7" Width="220" Margin="5"
+                            Click="EditUsers_Click"  HorizontalAlignment="Left" 
+                            Style="{StaticResource CapsuleButton}">
+                        <TextBlock Text="Редактировать пользователя" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Button>
 
                     <TextBlock Grid.Column="3"  Grid.Row="1" FontSize="30" HorizontalAlignment="Right" Text="Поиск:"/>
                     <TextBox Name="SearchTb" Grid.Column="4" Grid.Row="1" Width="400" Height="80" TextChanged="SearchTb_TextChanged"/>
@@ -117,7 +123,8 @@
                                     <GridViewColumn Header="ФИО клиента" Width="200" DisplayMemberBinding="{Binding FullName}"/>
                                     <GridViewColumn Header="Почта" Width="200" DisplayMemberBinding="{Binding Email}"/>
                                     <GridViewColumn Header="Телефон" Width="200" DisplayMemberBinding="{Binding Telephone}"/>
-                                    <GridViewColumn Header="Паспорт" Width="200" DisplayMemberBinding="{Binding PassportData}"/>
+                                    <GridViewColumn Header="Паспорт" Width="100" DisplayMemberBinding="{Binding PassportData}"/>
+                                    <GridViewColumn Header="Роль" Width="100" DisplayMemberBinding="{Binding Role.Name}"/>
 
 
 

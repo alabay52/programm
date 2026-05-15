@@ -27,7 +27,7 @@ namespace programm
             cmbTariff.DisplayMemberPath = "Name";
             cmbTariff.ItemsSource = App.context.TariffRents.ToList();
 
-            var userRole = App.context.Role.FirstOrDefault(r => r.Name == "Пользователь");
+            var userRole = App.context.Role.FirstOrDefault(r => r.Name == "Клиент");
             if (userRole != null)
             {
                 cmbUser.ItemsSource = App.context.Users
@@ -142,7 +142,12 @@ namespace programm
 
             MessageBox.Show("Бронирование успешно сохранено.");
 
+            dpEndDate.Text = "";
+            dpStartDate.Text = "";
 
+            cmbTariff.SelectedIndex = -1;
+            cmbTechnic.SelectedIndex = -1;
+            cmbUser.SelectedIndex = -1;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

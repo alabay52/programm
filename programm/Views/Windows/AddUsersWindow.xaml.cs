@@ -19,24 +19,23 @@ namespace programm.Views.Windows
             RoleClientCmb.SelectedValuePath = "Id";
             RoleClientCmb.DisplayMemberPath = "Name";
             RoleClientCmb.ItemsSource = App.context.Role.ToList();
-            var managerRole = App.context.Role.FirstOrDefault(r => r.Name == "Пользователь");
+            var managerRole = App.context.Role.FirstOrDefault(r => r.Name == "Клиент");
             if (managerRole != null)
             {
                 RoleClientCmb.ItemsSource = new List<Role> { managerRole };
                 RoleClientCmb.SelectedIndex = 0;
             }
-            LoadData();
-            LoadUsers();
+            RefreshUsersList();
         }
-
-        private void LoadUsers()
+        private void RefreshUsersList()
         {
             List<Users> users = App.context.Users
-                .Where(u => u.Role.Name == "пользователь")
-                .ToList();
-
-            UsersLv.ItemsSource = users; // где usersListView - имя вашего ListView
+                .Where(u => u.Role.Name == "клиент" || u.Role.Name == "менеджер")
+        .ToList();
+            UsersLv.ItemsSource = users;
+            _users = users; // сохраняем для поиска
         }
+
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -62,10 +61,16 @@ namespace programm.Views.Windows
             App.context.Users.Add(newModel);
             App.context.SaveChanges();
 
-            MessageBox.Show("Пользователь добавлена");
+            MessageBox.Show("Клиент добавлен");
 
             newModel = new Users(); // подготовка для следующей записи
-            LoadData();
+            RefreshUsersList(); // обновляем список
+                                // Очистка полей ввода (по желанию)
+            NameClientTb.Text = "";
+            EmailClientTb.Text = "";
+            PassportClientTb.Text = "";
+            TelephoneClientTb.Text = "";
+            RoleClientCmb.SelectedIndex = 0;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -75,11 +80,7 @@ namespace programm.Views.Windows
             Close();
         }
 
-        private void LoadData()
-        {
-            _users = App.context.Users.ToList();
-            UsersLv.ItemsSource = App.context.Users.ToList();
-        }
+
 
 
         private void SearchTb_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -87,29 +88,52 @@ namespace programm.Views.Windows
             string searchString = SearchTb.Text.ToLower();
             if (string.IsNullOrWhiteSpace(searchString))
             {
-                LoadUsers();
+                UsersLv.ItemsSource = _users;
                 return;
             }
-            var filteredList = _users.Where(Users => Users.FullName.ToLower().Contains(searchString) ||
-          Users.PassportData.ToLower().Contains(searchString) ||
-          Users.Telephone.ToLower().Contains(searchString)).ToList();
+
+            var filteredList = _users.Where(u =>
+                (u.FullName != null && u.FullName.ToLower().Contains(searchString)) ||
+                (u.PassportData != null && u.PassportData.ToLower().Contains(searchString)) ||
+                (u.Telephone != null && u.Telephone.ToLower().Contains(searchString))
+            ).ToList();
+
             UsersLv.ItemsSource = filteredList;
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             Users selectedUsers = (Users)UsersLv.SelectedItem;
+            if (selectedUsers == null)
+            {
+                MessageBox.Show("Выберите пользователя для удаления");
+                return;
+            }
             try
             {
                 App.context.Users.Remove(selectedUsers);
                 App.context.SaveChanges();
                 MessageBox.Show("Пользователь успешно удален.");
-                LoadData();
+                RefreshUsersList();
             }
             catch
             {
 
                 MessageBox.Show("Невозможно удалить пользователя");
+            }
+        }
+
+        private void EditUsers_Click(object sender, RoutedEventArgs e)
+        {
+            Users selectedUsers = UsersLv.SelectedItem as Users;
+            if (selectedUsers != null)
+            {
+                EditUsersWindow editTaskWindow = new EditUsersWindow(selectedUsers);
+                if (editTaskWindow.ShowDialog() == true)
+                {
+                    RefreshUsersList();
+
+                }
             }
         }
     }

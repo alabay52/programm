@@ -1,6 +1,8 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 using programm.Modl;
 
@@ -20,7 +22,12 @@ namespace programm.Windows
             StatusCmb.SelectedValuePath = "Id";
             StatusCmb.DisplayMemberPath = "Name";
             StatusCmb.ItemsSource = App.context.Status.ToList();
-
+            var status = App.context.Status.FirstOrDefault(r => r.Name == "Не забронирован");
+            if (status != null)
+            {
+                StatusCmb.ItemsSource = new List<Status> { status };
+                StatusCmb.SelectedIndex = 0;
+            }
         }
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -31,8 +38,23 @@ namespace programm.Windows
 
             if (fileDialog.ShowDialog() == true)
             {
-                newModel.Photo = File.ReadAllBytes(fileDialog.FileName);
-                MessageBox.Show("Фотография добавлена");
+                //newModel.Photo = File.ReadAllBytes(fileDialog.FileName);
+                //MessageBox.Show("Фотография добавлена");
+                byte[] imageBytes = File.ReadAllBytes(fileDialog.FileName);
+                newModel.Photo = imageBytes;
+
+                // Отобразить выбранное фото
+                BitmapImage bitmap = new BitmapImage();
+                using (var stream = new MemoryStream(imageBytes))
+                {
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.StreamSource = stream;
+                    bitmap.EndInit();
+                    bitmap.Freeze();
+                }
+                PhotoPreview.Source = bitmap;
+                MessageBox.Show("Фотография добавлена и отображается");
             }
         }
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -56,7 +78,13 @@ namespace programm.Windows
 
             MessageBox.Show("Техника добавлена");
 
-            newModel = new Technic(); // подготовка для следующей записи
+            newModel = new Technic();
+
+            NameTb.Text = "";
+            VINTb.Text = "";
+            DescriptionTb.Text = "";
+            PhotoPreview.Source = null;
+
         }
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)

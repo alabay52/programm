@@ -81,7 +81,7 @@
                 </Button>
                 <Button Name="UsersAdd" Click="UsersAdd_Click"  Grid.Column="2" 
 Height="100" Width="300" Style="{StaticResource CapsuleButton}">
-                    <TextBlock Text="Управление клиентами " TextWrapping="Wrap" TextAlignment="Center"/>
+                    <TextBlock Text="Управление пользовтелями " TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
                 <!--<Button Name="TechnikDeleteBtn" Click="TechnikDeleteBtn_Click"  Grid.Column="4"  Height="100" Width="300" Style="{StaticResource CapsuleButton}">
                     <TextBlock Text="Удалить технику с проката" TextWrapping="Wrap" TextAlignment="Center"/>

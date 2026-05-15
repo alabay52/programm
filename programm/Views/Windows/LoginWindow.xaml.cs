@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using programm.Views.Windows;
 using programm.Windows;
 
 namespace programm.Window
@@ -70,7 +71,8 @@ namespace programm.Window
 
         private void RegHl_Click(object sender, RoutedEventArgs e)
         {
-
+            RegistrationWindow registrationWindow = new RegistrationWindow();
+            registrationWindow.ShowDialog();
         }
     }
 }

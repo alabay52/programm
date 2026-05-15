@@ -125,6 +125,9 @@
     <Compile Include="Views\Windows\EditTechnicWindow.xaml.cs">
       <DependentUpon>EditTechnicWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Windows\EditUsersWindow.xaml.cs">
+      <DependentUpon>EditUsersWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\ListTechnicWindow.xaml.cs">
       <DependentUpon>ListTechnicWindow.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Windows\EditTechnicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\EditUsersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

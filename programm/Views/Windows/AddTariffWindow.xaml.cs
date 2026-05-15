@@ -53,6 +53,10 @@ namespace programm.Views.Windows
 
             newModel = new TariffRents(); // подготовка для следующей записи
             LoadData();
+            NameTb.Text = "";
+            Descriptiontb.Text = "";
+            PriceTb.Text = "";
+
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
