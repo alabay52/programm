@@ -42,7 +42,7 @@
 
         <TextBlock Grid.Row="8" Grid.Column="0" Text="Итоговая цена:" VerticalAlignment="Center"/>
         <TextBlock x:Name="TotalPriceTextBlock" Grid.Row="8" Grid.Column="2" 
-           Foreground="Green" VerticalAlignment="Center"/>
+           Foreground="Black" FontSize="20" VerticalAlignment="Center"/>
 
         <Button Name="EditBtn" Content="Редактировать данные" Grid.Row="10" Grid.Column="2" Click="EditBtn_Click" Style="{StaticResource CapsuleButton}" FontSize="20"/>
 

@@ -44,6 +44,9 @@ namespace programm.Views.Windows
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
+            selectedTechnic.Name = NameTb.Text;
+            selectedTechnic.VIN = VINTb.Text;
+            selectedTechnic.Description = DescriptionTb.Text;
             App.context.SaveChanges();
             MessageBox.Show("Техника отредактирована", "информация", MessageBoxButton.OK, MessageBoxImage.Information);
 
