@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using programm.Modl;
@@ -48,7 +49,7 @@ namespace programm.Windows
                 LoadData();
                 return;
             }
-            var filteredList = _booking.Where(Booking => Booking.Technic.Name.ToLower().Contains(searchString) ||
+            var filteredList = _booking.Where(Booking => Booking.Technic.Name.ToLower().Contains(searchString) || Booking.TariffRents.Name.ToLower().Contains(searchString) ||
           Booking.Users.FullName.ToLower().Contains(searchString) ||
           Booking.Users1.FullName.ToLower().Contains(searchString)).ToList();
             BookindLv.ItemsSource = filteredList;
@@ -79,14 +80,38 @@ namespace programm.Windows
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
             Booking selectedbooking = BookindLv.SelectedItem as Booking;
-            if (selectedbooking != null)
+            if (selectedbooking == null)
             {
-                EditBookingWindow editTaskWindow = new EditBookingWindow(selectedbooking);
-                if (editTaskWindow.ShowDialog() == true)
-                {
-                    BookindLv.ItemsSource = App.context.Booking.ToList();
+                MessageBox.Show("Выберите бронирование для редактирования.", "Ошибка",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
-                }
+            // Проверяем, можно ли редактировать: если закончилось более 3 дней назад — запрет
+            if (selectedbooking.EndDateBooking < DateTime.Today.AddDays(-3))
+            {
+                MessageBox.Show("Редактирование недоступно: бронирование завершилось более 3 дней назад.",
+                                "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            // Если бронирование уже закончилось, но не более 3 дней назад — предупреждаем
+            if (selectedbooking.EndDateBooking < DateTime.Today)
+            {
+                var result = MessageBox.Show(
+                    "Внимание: дата окончания бронирования уже прошла, но ещё не превысила 3 дня.\nВы уверены, что хотите редактировать?",
+                    "Подтверждение",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.No)
+                    return;
+            }
+            EditBookingWindow editTaskWindow = new EditBookingWindow(selectedbooking);
+            if (editTaskWindow.ShowDialog() == true)
+            {
+                // Обновляем список бронирований после редактирования
+                BookindLv.ItemsSource = App.context.Booking.ToList();
             }
         }
     }
