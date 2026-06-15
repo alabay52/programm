@@ -33,7 +33,7 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Foreground="White" Grid.RowSpan="3" Text="Данный раздел предназначен для работы бронью"/>
+            <TextBlock Grid.Column="8" FontSize="30" TextWrapping="Wrap" Foreground="White" Grid.RowSpan="3" Text="Данный раздел предназначен для работы тарифами"/>
 
 
 

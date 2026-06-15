@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using programm.Modl;
+using programm.Views.Windows;
 using programm.Window;
 
 namespace programm.Windows
@@ -72,6 +73,20 @@ namespace programm.Windows
                     MessageBox.Show("Невозможно удалить бронирование");
                 }
 
+            }
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Booking selectedbooking = BookindLv.SelectedItem as Booking;
+            if (selectedbooking != null)
+            {
+                EditBookingWindow editTaskWindow = new EditBookingWindow(selectedbooking);
+                if (editTaskWindow.ShowDialog() == true)
+                {
+                    BookindLv.ItemsSource = App.context.Booking.ToList();
+
+                }
             }
         }
     }

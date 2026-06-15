@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:programm.Views.Windows"
         mc:Ignorable="d"
-                       Title="Редактирование задачи" Height="450" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#776C76">
+                       Title="Редактирование данных" Height="450" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#776C76">
     <Grid Margin="8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
@@ -40,8 +40,8 @@
         <TextBox Name="PassportTb" Grid.Column="2" Grid.Row="6" Text="{Binding PassportData}"/>
 
 
-        
-        <Button Name="EditBtn" Content="Редактировать данные" Grid.Row="10" Grid.Column="2" Click="EditBtn_Click"/>
+
+        <Button Name="EditBtn" Content="Редактировать данные" Grid.Row="10" Grid.Column="2" Click="EditBtn_Click"  Style="{StaticResource CapsuleButton}" FontSize="20"/>
         
 
     </Grid>

@@ -122,6 +122,9 @@
     <Compile Include="Views\Windows\ChangePasswordWindow.xaml.cs">
       <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Windows\EditBookingWindow.xaml.cs">
+      <DependentUpon>EditBookingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\EditTechnicWindow.xaml.cs">
       <DependentUpon>EditTechnicWindow.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Windows\ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\EditBookingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

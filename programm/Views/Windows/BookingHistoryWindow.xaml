@@ -100,13 +100,18 @@
                         </ListView.View>
                     </ListView>
                     <Grid Grid.Row="2" Margin="5">
-                        <Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions >
                             <ColumnDefinition Width="8*" />
-                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="2*"  />
                         </Grid.ColumnDefinitions>
                     <Button Grid.Row="2" Grid.Column="1"
                             Name="BackBtn" Click="BackBtn_Click_1" 
                             Height="70" Width="150" Content="Назад" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Right"/>
+                        
+                        <Button Grid.Row="2" Grid.Column="1"
+        Name="EditBtn" Click="EditBtn_Click" 
+        Height="70" Width="auto" Content="Редактировать" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Left" Margin="9"/>
+                        
                     <Button Grid.Row="2" 
         Name="DeleteBtn" Click="DeleteBtn_Click" 
         Height="70" Width="auto" Content="Удалить бронирование" Style="{StaticResource CapsuleButton}"   HorizontalAlignment="Right"/>

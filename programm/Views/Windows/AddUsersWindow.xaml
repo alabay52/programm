@@ -103,7 +103,10 @@
                     <Button x:Name="btnSaveClient" Grid.Column="1" Grid.Row="7" Content="Сохранить клиента" Click="btnSaveClient_Click"  Width="350" Margin="5"  Style="{StaticResource CapsuleButton}"/>
                     
                     <Button x:Name="btnCancel" Content="Назад" Grid.Column="6" Grid.Row="7" Width="180" Margin="5" Click="btnCancel_Click"  HorizontalAlignment="Right"  Style="{StaticResource CapsuleButton}"/>
-                    <Button x:Name="DeleteBtn" Content="Удалить клиента" Grid.Column="4" Grid.Row="7" Width="220" Margin="5" Click="DeleteBtn_Click"  HorizontalAlignment="Right"  Style="{StaticResource CapsuleButton}"/>
+                    <Button x:Name="DeleteBtn"  Grid.Column="4" Grid.Row="7" Width="220" Margin="5" Click="DeleteBtn_Click"  
+                            HorizontalAlignment="Right"  Style="{StaticResource CapsuleButton}">
+                        <TextBlock Text="Удалить пользователя" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Button>
                     <Button x:Name="EditUsers" 
                              Grid.Column="4" Grid.Row="7" Width="220" Margin="5"
                             Click="EditUsers_Click"  HorizontalAlignment="Left" 

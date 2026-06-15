@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:programm.Views.Windows"
         mc:Ignorable="d"
-        Title="RegistrationWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Окно регистрации" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#776C76">
         <Grid.RowDefinitions>
 
@@ -30,7 +30,7 @@
         <TextBox x:Name="NameEmployeeTb" Grid.Row="1" Grid.Column="4"  Margin="5" />
 
 
-        <TextBlock Grid.Row="2" Grid.Column="0" FontSize="20" Text="Роль:" Margin="5" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" FontSize="20" Text="Должность:" Margin="5" HorizontalAlignment="Right"/>
         <ComboBox x:Name="RoleEmployeeCmb" Grid.Row="2" Grid.Column="4" Margin="5" DisplayMemberPath="Name" SelectedValuePath="IdRole"/>
 
 
